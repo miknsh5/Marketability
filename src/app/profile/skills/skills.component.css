@@ -1,0 +1,32 @@
+
+.skill_container{
+  list-style: none;
+  padding: 5px;
+  width: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul > li {
+   display: block;
+   margin: 4px;  
+}
+
+ul > li > span { 
+    color: white;    
+    font-size: 12px;
+    padding: 2px 15px;   
+    border-radius: 4px;  
+    font-family: Verdana; 
+    background-color: #2f4870;    
+}
+
+#skill_container_msg
+{
+    font-size: 14px;
+    padding: 2px 15px;   
+    font-family: Verdana; 
+}
