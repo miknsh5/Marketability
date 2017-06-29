@@ -1,0 +1,23 @@
+label {
+  color: #b2eadb;
+  text-decoration: none;
+  font-family: Arial;
+  font-size:15px;
+}
+
+input[type="text"] {
+    width: 200px;
+    font-size:16px;
+    color:#00396b;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #b2eadb;
+    margin-bottom: 20px; 
+}
+
+#profile_container
+{
+    display: block;
+    width: 100px;    
+}

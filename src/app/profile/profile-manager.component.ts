@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PersonProfile } from '../shared/models'
+import { Profile } from '../shared/models'
 
 @Component({
     selector: 'mkb-profile-manager',
@@ -6,8 +8,18 @@ import { Component } from '@angular/core';
     styleUrls: ['./profile-manager.component.css']
 })
 export class ProfileManagerComponent {
+    
+    currentProfile : PersonProfile;
 
     constructor() {
 
     }
+
+    ngOnInit() {
+    this.currentProfile = new PersonProfile();
+    this.currentProfile.Profile =  new Profile();
+    this.currentProfile.Profile.City = "Seattle";
+    this.currentProfile.Profile.Name = "John Smith";
+    this.currentProfile.Profile.Occupation = "Software Developer";
+  }
 }
