@@ -1,3 +1,3 @@
 export * from './models/';
-export * from './service/';
+export * from './services/';
 export * from './enums/';

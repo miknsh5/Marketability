@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   AppComponent, LoginComponent, ProfileManagerComponent, BasicProfileComponent,
   CalculationComponent, ExperienceComponent, ScoreComponent, SkillsComponent,
-  AuthService, MarketabilityService, ProfileService
+  AuthService, MarketabilityService, ProfileService, AuthGuard
 } from './index';
 
 @NgModule({
@@ -23,7 +23,7 @@ import {
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthService, MarketabilityService, ProfileService],
+  providers: [AuthService, AuthGuard, MarketabilityService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
