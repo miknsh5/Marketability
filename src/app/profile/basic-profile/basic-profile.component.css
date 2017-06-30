@@ -3,21 +3,30 @@ label {
   text-decoration: none;
   font-family: Arial;
   font-size:15px;
+    top: 0.0rem;
 }
 
 input[type="text"] {
     width: 200px;
+    height: 20px;
     font-size:16px;
     color:#00396b;
     border: 0;
     outline: 0;
     background: transparent;
     border-bottom: 1px solid #b2eadb;
-    margin-bottom: 20px; 
 }
 
-#profile_container
+.row {
+    margin-bottom: 0px;
+}
+
+.input-field label:not(.label-icon).active {
+    -webkit-transform: translateY(-70%);
+    transform: translateY(-70%);
+}
+/*#profile_container
 {
     display: block;
     width: 100px;    
-}
+}*/
