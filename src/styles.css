@@ -8,4 +8,9 @@ html {
 body {
     height: 100%;
     width: 100%;
+    margin: 0px;
+}
+
+.auth0-lock-header {
+    display: none !important;
 }
