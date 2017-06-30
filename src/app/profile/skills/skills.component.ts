@@ -7,7 +7,7 @@ import { Skill } from "app";
     styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent {
-    @Input() CurrentProfileSkills: Array<Skill> = [];
+    @Input() CurrentProfileSkills: Array<Skill> = Array<Skill>();
     
     constructor() {
 

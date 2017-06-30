@@ -1,7 +1,6 @@
 <h1>Profile Manager</h1>
 
-<!-->
-<div id="skill_container">
-<mkb-skills id="skill_container" [CurrentProfileSkills] = "[{SkillName:'C#'},{SkillName:'Java'},{SkillName:'JavaScript'}]"></mkb-skills>
+
+<div id="skill_container" *ngIf = "CurrentPage === 1">
+<mkb-skills id="skill_container" [CurrentProfileSkills] = "CurrentProfile.Skills"></mkb-skills>
 </div>
-</!-->
