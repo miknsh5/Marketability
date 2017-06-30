@@ -10,6 +10,7 @@ import { Profile } from '../shared/models'
 export class ProfileManagerComponent {
     
     currentProfile : PersonProfile;
+    score: string;
 
     constructor() {
 
@@ -21,5 +22,6 @@ export class ProfileManagerComponent {
     this.currentProfile.Profile.City = "Seattle";
     this.currentProfile.Profile.Name = "John Smith";
     this.currentProfile.Profile.Occupation = "Software Developer";
+    this.score = "37";
   }
 }
