@@ -17,7 +17,7 @@ export class ProfileManagerComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.CurrentPage = ProfilePage.Skill;
+        this.CurrentPage = ProfilePage.Experience;
         
         let dummyPerson = new PersonProfile();
         

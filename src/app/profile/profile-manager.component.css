@@ -1,23 +1,26 @@
-#skill_container{
+.container{
   list-style: none;
-  width: 150px;
-  height: 200px;
-  overflow-y: auto
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 480px;
+  overflow-y: auto;
 }
 
-#skill_container::-webkit-scrollbar-track
+.container::-webkit-scrollbar-track
 {
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #45db9e;
 }
 
-#skill_container::-webkit-scrollbar
+.container::-webkit-scrollbar
 {
 	width: 4px;
 	background-color: #F5F5F5;
 }
 
-#skill_container::-webkit-scrollbar-thumb
+.container::-webkit-scrollbar-thumb
 {
 	background-color: #90f9ce;
 }
+
