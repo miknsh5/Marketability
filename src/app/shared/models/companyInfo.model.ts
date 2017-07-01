@@ -4,5 +4,5 @@ export class CompanyInfo {
     Title: string;
     StartDate: string;
     EndDate: string;
-
+    
 }
