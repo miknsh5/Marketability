@@ -8,4 +8,9 @@ export class PersonProfile {
     Skills: Array<Skill>;
     Experience: Experience;
 
+    constructor() {
+        this.Profile = new Profile();
+        this.Skills = new Array<Skill>();
+        this.Experience = new Experience();
+    }
 }

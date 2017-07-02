@@ -1,0 +1,41 @@
+.wrapper,
+.wrapper .m6,
+.wrapper .valign-wrapper {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.titleContainer {
+    color: #FFFFFF;
+    background-color: #3A5D86;
+}
+
+.infoContent {
+    font-size: 1.15em;
+}
+
+.loginContainer .center-align {
+    min-height: 150px;
+}
+
+.loginContainer h5 {
+    margin-bottom: 0;
+}
+
+.infoContent {
+    padding-left: calc(50% - 75px);
+}
+
+@media only screen and (max-width :600px) {
+    .loginContainer {
+        height: 50%;
+    }
+    .loginContainer>.valign-wrapper {
+        -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+    }
+    .loginContainer .center-align {
+        min-height: 120px;
+    }
+}
