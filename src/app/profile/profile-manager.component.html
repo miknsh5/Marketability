@@ -1,10 +1,30 @@
-
-
-
-<div class="container" *ngIf = "CurrentPage === 1">
-<mkb-skills [CurrentProfileSkills] = "CurrentProfile.Skills"></mkb-skills>
+<div class="profile-wrapper row">
+    <div class="nav-container col s12 m1">
+        <div class="logout-container">
+            <a class="logout-button" (click)="onLogoutButtonClicked()"><i class="material-icons">input</i></a>
+        </div>
+        <div class="prev-button-container" *ngIf="currentPage > 0">
+            <a class="prev-button" (click)="onPrevButtonClicked(currentPage)"><i class="material-icons">navigate_before</i></a>
+        </div>
+    </div>
+<div class="profile-page-title m2 s6">
+    <div class="page-title">
+        {{pageTitle}}
+    </div>
 </div>
+    
+    <div class="profile-container col s12 m11">
+        <div class="container" >
+            <mkb-skills *ngIf="currentPage === 1" [CurrentProfileSkills]="currentProfile.Skills"></mkb-skills>
+        
+            <mkb-experience *ngIf="currentPage === 2" [CurrentProfileExperience]="currentProfile.Experience"></mkb-experience>
+        </div>
 
-<div class="container" *ngIf = "CurrentPage === 2">
-<mkb-experience [CurrentProfileExperience] = "CurrentProfile.Experience"></mkb-experience>
+        <button class="waves-effect waves-light btn next-button" (click)="onNextButtonClicked(currentPage)" *ngIf="currentPage < 3">{{ navButtonText }}</button>
+    </div>
+    <div class="progress-container col m2 s12" *ngIf="currentPage < 4">
+    <div class="progress">
+      <div class="determinate" style="width : 50% "></div>
+  </div>
+    </div>
 </div>

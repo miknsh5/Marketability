@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Experience } from "app";
+import { Experience } from '../../index';
 
 @Component({
   selector: 'mkb-experience',
@@ -8,7 +8,7 @@ import { Experience } from "app";
 })
 export class ExperienceComponent {
 
-  @Input() CurrentProfileExperience : Experience;
+  @Input() CurrentProfileExperience: Experience;
 
   constructor() {
 
