@@ -9,8 +9,8 @@
 }
 
 .container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #ABEBE6;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 1);
+    background-color: rgb(95,207,172);
 }
 
 .container::-webkit-scrollbar {
@@ -95,7 +95,7 @@
 .profile-page-title {
     position: absolute;
     top: 15%;
-    left: 48%;
+    left: 47.5%;
 }
 
 .page-title {
