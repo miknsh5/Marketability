@@ -7,24 +7,30 @@
             <a class="prev-button" (click)="onPrevButtonClicked(currentPage)"><i class="material-icons">navigate_before</i></a>
         </div>
     </div>
-<div class="profile-page-title m2 s6">
-    <div class="page-title">
-        {{pageTitle}}
+    <div class="profile-page-title m2 s6">
+        <div class="page-title">
+            {{pageTitle}}
+        </div>
     </div>
-</div>
-    
+
     <div class="profile-container col s12 m11">
-        <div class="container" >
-            <mkb-skills *ngIf="currentPage === 1" [CurrentProfileSkills]="currentProfile.Skills"></mkb-skills>
-        
-            <mkb-experience *ngIf="currentPage === 2" [CurrentProfileExperience]="currentProfile.Experience"></mkb-experience>
+        <div class="container">
+            <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0"></mkb-basic-profile>
+
+            <mkb-skills [CurrentProfileSkills]="currentProfile.Skills" *ngIf="currentPage === 1"></mkb-skills>
+
+            <mkb-experience [CurrentProfileExperience]="currentProfile.Experience" *ngIf="currentPage === 2"></mkb-experience>
+
+            <mkb-calculation *ngIf="currentPage === 3"></mkb-calculation>
+
+            <mkb-score [score]="score" *ngIf="currentPage === 4"> </mkb-score>
         </div>
 
         <button class="waves-effect waves-light btn next-button" (click)="onNextButtonClicked(currentPage)" *ngIf="currentPage < 3">{{ navButtonText }}</button>
     </div>
     <div class="progress-container col m2 s12" *ngIf="currentPage < 4">
-    <div class="progress">
-      <div class="determinate" style="width : 50% "></div>
-  </div>
+        <div class="progress">
+            <div class="determinate" style="width : 50% "></div>
+        </div>
     </div>
 </div>

@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, PersonProfile, Skill, Profile, Experience, CompanyInfo, ProfilePage, MarketabilityService } from '../shared/index';
+import {
+    AuthService, PersonProfile, Skill, Profile,
+    Experience, CompanyInfo, ProfilePage, MarketabilityService
+} from '../shared/index';
 
 @Component({
     selector: 'mkb-profile-manager',
     templateUrl: './profile-manager.component.html',
     styleUrls: ['./profile-manager.component.css']
 })
+
 export class ProfileManagerComponent implements OnInit {
 
     currentPage: ProfilePage;
     currentProfile: PersonProfile;
-    personProfile: PersonProfile;
     score: string;
     pageTitle: string;
     navButtonText: string;
@@ -19,10 +22,12 @@ export class ProfileManagerComponent implements OnInit {
 
     constructor(private authService: AuthService, private marketabilityService: MarketabilityService) {
         this.currentProfile = new PersonProfile();
+        this.currentProfile.Profile=new Profile();
         this.currentPage = ProfilePage.Profile;
         // this.currentProgress=25;
         // this.progressPercent="25%";
     }
+
     ngOnInit() {
         this.currentProfile = this.authService.getProfile();
         this.setPageTitle(this.currentPage);

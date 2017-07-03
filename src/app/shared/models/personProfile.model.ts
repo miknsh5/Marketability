@@ -7,5 +7,5 @@ export class PersonProfile {
     Profile: Profile;
     Skills: Array<Skill>;
     Experience: Experience;
-
+    
 }

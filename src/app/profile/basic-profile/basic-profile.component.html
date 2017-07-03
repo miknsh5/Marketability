@@ -1,0 +1,37 @@
+<div class="row">
+        <div class="input-field col s6">
+            <label>Name</label>
+            <input #name class="validate"
+              type="text" [ngModel]="profile.Name" readonly>
+            
+        </div>
+</div>
+
+<div class="row">
+        <div class="input-field col s6">
+            <label>City</label>
+            <input #city
+              type="text" [ngModel]="profile.City" readonly>
+            
+        </div>
+</div>
+<div class="row">
+        <div class="input-field col s6">
+            <label>Occupation</label>
+            <input #occupation
+              type="text" [ngModel]="profile.Occupation" readonly>
+            
+        </div>
+</div>
+
+
+<!--<div id = "profile_container">
+<label> Name</label>
+<input #name type="text" [ngModel]="profile.Name" readonly>
+<label> City</label>
+<input #city type="text"  [ngModel]="profile.City" readonly>
+<label> Occupation</label>
+<input #occupation type="text"  [ngModel]="profile.Occupation" readonly>
+</div>
+-->
+ 

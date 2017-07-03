@@ -61,9 +61,7 @@ export class AuthService {
                 // Handle error
                 throw new Error(error);
             }
-            // code for extracting user profile info
-            console.log(profile);
-
+            
             userProfile.Profile = new Profile();
             userProfile.Skills = new Array<Skill>();
             userProfile.Experience = new Experience();

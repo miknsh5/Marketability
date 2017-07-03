@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'mkb-score',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./score.component.css']
 })
 export class ScoreComponent {
-
+    @Input() score;
     constructor() {
 
     }
