@@ -52,50 +52,6 @@ export class AuthService {
         return tokenNotExpired('id_token');
     }
 
-    public getProfile(): PersonProfile {
-        // Fetch profile information
-        const userProfile = new PersonProfile();
-        const accessToken = localStorage.getItem('accessToken');
-        this.lock.getUserInfo(accessToken, (error, profile) => {
-            if (error) {
-                // Handle error
-                throw new Error(error);
-            }
-            
-            userProfile.Profile = new Profile();
-            userProfile.Skills = new Array<Skill>();
-            userProfile.Experience = new Experience();
-            userProfile.Experience.WorkExperience = new Array<CompanyInfo>();
-
-            userProfile.Profile.Name = profile.name;
-            userProfile.Profile.City = profile.location.name;
-            userProfile.Profile.Occupation = profile.headline;
-
-            ['C#', 'Java', 'JavaScript', 'Python'].forEach(elm => {
-                const skill = new Skill();
-                skill.SkillName = elm;
-                userProfile.Skills.push(skill);
-            });
-
-            profile.positions.values.forEach(experience => {
-                const companyInfo = new CompanyInfo();
-                companyInfo.CompanyName = experience.company.name;
-                companyInfo.Title = experience.title;
-                companyInfo.StartDate = experience.startDate.month + ' / ' + experience.startDate.year;
-
-                if (!experience.isCurrent) {
-                    companyInfo.EndDate = experience.endDate.month + ' / ' + experience.endDate.year;
-                } else {
-                    companyInfo.EndDate = '';
-                }
-                userProfile.Experience.WorkExperience.push(companyInfo);
-
-            });
-
-        });
-        return userProfile;
-    }
-
     private clearStorage() {
         // To log out, just remove the token and profile from local storage
         localStorage.clear();

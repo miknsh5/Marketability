@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="profile-container col s12 m11">
+    <div class="profile-container col s12 m11" *ngIf="currentProfile">
         <div class="container">
             <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0"></mkb-basic-profile>
 
