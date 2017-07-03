@@ -119,7 +119,7 @@ export class ProfileManagerComponent implements OnInit {
             profile.positions.values.forEach(experience => {
                 const companyInfo = new CompanyInfo();
                 companyInfo.CompanyName = experience.company.name;
-                companyInfo.Title = experience.title + ". "+experience.title;
+                companyInfo.Title = experience.title;
                 companyInfo.StartDate = experience.startDate.month + ' / ' + experience.startDate.year;
 
                 if (!experience.isCurrent) {
