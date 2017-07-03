@@ -10,12 +10,13 @@ import {
   CalculationComponent, ExperienceComponent, ScoreComponent, SkillsComponent,
   AuthService, MarketabilityService, ProfileService, AuthGuard
 } from './index';
+import { AutoGrowDirective } from './shared/directive/auto-grow.directive';
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, ProfileManagerComponent,
     BasicProfileComponent, CalculationComponent, ExperienceComponent,
-    ScoreComponent, SkillsComponent
+    ScoreComponent, SkillsComponent, AutoGrowDirective
   ],
   imports: [
     BrowserModule,

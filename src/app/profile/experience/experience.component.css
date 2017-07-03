@@ -17,14 +17,13 @@
 .experience_row input[type=text]:disabled+label
 {
     color:#ABEBE6;
-    margin-top: -1.4rem;
 }
 
 .experience_row textarea.materialize-textarea
 {
     color: rgb(36, 60, 97);
     border-bottom: 1px solid #7FE6D4;
-    padding: 0;
+    padding: 0.15em 0;
     margin: 3% 0 0 0;
     height: 1.2rem;
     min-height: 1.2rem;
