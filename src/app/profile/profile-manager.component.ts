@@ -3,7 +3,7 @@ import {
     AuthService, PersonProfile, Skill, Profile,
     Experience, CompanyInfo, ProfilePage, MarketabilityService
 } from '../shared/index';
-import {AUTH_CONFIG} from '../shared/services/auth/auth.config';
+import { AUTH_CONFIG } from '../shared/services/auth/auth.config';
 
 declare var Auth0Lock: any;
 
@@ -33,7 +33,6 @@ export class ProfileManagerComponent implements OnInit {
 
     ngOnInit() {
         this.getProfile();
-        console.log(JSON.stringify(this.currentProfile));
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
     }
@@ -59,12 +58,10 @@ export class ProfileManagerComponent implements OnInit {
 
     calculateMarketability() {
         this.score = this.marketabilityService.calculateMarketability(this.currentProfile);
-        console.log(this.score);
     }
 
     onLogoutButtonClicked() {
         this.authService.logout();
-
     }
 
     setPageTitle(page: ProfilePage) {
@@ -130,9 +127,9 @@ export class ProfileManagerComponent implements OnInit {
                 userProfile.Experience.WorkExperience.push(companyInfo);
 
             });
-            this.currentProfile =  userProfile;
+            this.currentProfile = userProfile;
         });
-        
+
     }
 
 }

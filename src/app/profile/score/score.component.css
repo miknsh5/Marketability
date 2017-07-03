@@ -1,4 +1,4 @@
-.imgHolder {
+/*.imgHolder {
     position: relative;
 }
 
@@ -6,4 +6,23 @@
     position: absolute;
     right: 10px;
     top: 10px;
+}*/
+
+.score_container {
+  display : table-cell;
+  width : 300px;
+  height : 480px;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+
+.score_span {
+    position: absolute;
+    top: 43%;
+    right: 42%;
+    font-size: 3.25em;
+    color: #001f57;
+    font-family: calibri;
+    font-weight: bold;
 }
