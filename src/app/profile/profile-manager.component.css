@@ -1,5 +1,16 @@
+@media only screen and (min-width: 601px) {
+  .mainContainer {
+    padding-left: 124px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .side-nav.fixed {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
 .mainContainer {
-  padding-left: 124px;
   height: 100%;
 }
 
@@ -10,16 +21,14 @@
 }
 
 .container {
-  max-width: 370px;
+  width: 100%;
+  max-width: 375px;
 }
 
 #profileManger {
   max-height: 725px;
-  height: 100%;
 }
-@media only screen and (max-width: 992px) {
-  .side-nav.fixed {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
+
+#profileMangerContent {
+  width: 100%;
 }
