@@ -1,10 +1,7 @@
+<div class="container" *ngIf = "CurrentPage === 1">
+<mkb-skills [CurrentProfileSkills] = "CurrentProfile.Skills"></mkb-skills>
+</div>
 
-<label class="heading">Profile Manager</label><br><br><br>
-<mkb-basic-profile
-  [profile]="currentProfile.Profile"> 
- </mkb-basic-profile>
-
-<mkb-calculation>
-</mkb-calculation>
-<mkb-score [score] = "score">
-</mkb-score>
+<div class="container" *ngIf = "CurrentPage === 2">
+<mkb-experience [CurrentProfileExperience] = "CurrentProfile.Experience"></mkb-experience>
+</div>

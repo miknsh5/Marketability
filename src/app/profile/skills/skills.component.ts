@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Skill } from "app";
 
 @Component({
     selector: 'mkb-skills',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent {
-
+    @Input() CurrentProfileSkills: Array<Skill> = Array<Skill>();
+    
     constructor() {
 
     }
