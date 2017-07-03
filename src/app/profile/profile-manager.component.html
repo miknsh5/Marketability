@@ -1,7 +1,26 @@
+
+<div class="container" *ngIf = "CurrentPage === 1">
+<mkb-basic-profile
+  [profile]="CurrentProfile.Profile"> 
+ </mkb-basic-profile>
+</div>
+
+<div class="container" *ngIf = "CurrentPage === 1">
+<mkb-calculation>
+</mkb-calculation>
+</div>
+<div class="container" *ngIf = "CurrentPage === 2">
+<mkb-score [score] = "Score">
+</mkb-score>
+</div>
+
+
+
 <div class="container" *ngIf = "CurrentPage === 1">
 <mkb-skills [CurrentProfileSkills] = "CurrentProfile.Skills"></mkb-skills>
 </div>
 
-<div class="container" *ngIf = "CurrentPage === 2">
+<div class="container" *ngIf = "CurrentPage === 1">
 <mkb-experience [CurrentProfileExperience] = "CurrentProfile.Experience"></mkb-experience>
 </div>
+

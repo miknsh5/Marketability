@@ -1,29 +1,30 @@
+<div class='profile_container'>
 <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             <label>Name</label>
             <input #name class="validate"
-              type="text" [ngModel]="profile.Name" readonly>
+              type="text" [ngModel]="profile.Name" >
             
         </div>
 </div>
 
 <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             <label>City</label>
-            <input #city
-              type="text" [ngModel]="profile.City" readonly>
+            <input #city class="validate"
+              type="text" [ngModel]="profile.City">
             
         </div>
 </div>
 <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             <label>Occupation</label>
-            <input #occupation
-              type="text" [ngModel]="profile.Occupation" readonly>
+            <input #occupation class="validate"
+              type="text" [ngModel]="profile.Occupation">
             
         </div>
 </div>
-
+</div>
 
 <!--<div id = "profile_container">
 <label> Name</label>

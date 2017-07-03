@@ -11,6 +11,7 @@ export class ProfileManagerComponent implements OnInit {
     
     CurrentPage : ProfilePage;
     CurrentProfile : PersonProfile;
+    Score: string;
 
     constructor() {
 
@@ -53,5 +54,6 @@ export class ProfileManagerComponent implements OnInit {
         dummyPerson.Experience = dummyExperience;
 
         this.CurrentProfile = dummyPerson;
+        this.Score = "37";
     }
 }
