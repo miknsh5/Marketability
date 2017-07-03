@@ -9,20 +9,19 @@
 }*/
 
 .score_container {
-  display : table-cell;
-  width : 300px;
-  height : 480px;
-  vertical-align: middle;
+  width : auto;
+  height : auto;
   text-align: center;
   position: relative;
 }
 
 .score_span {
+    text-align: center;
     position: absolute;
-    top: 43%;
-    right: 42%;
-    font-size: 3.25em;
-    color: #001f57;
-    font-family: calibri;
-    font-weight: bold;
+    top: 22%;
+    right: 40%;
+    color: #1b3c64;
+    font-size: 4.5em;
+    font-family: 'Calibri', sans-serif;
+    font-weight: 600;
 }

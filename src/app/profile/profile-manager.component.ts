@@ -106,7 +106,6 @@ export class ProfileManagerComponent implements OnInit {
             userProfile.Profile.Name = profile.name;
             userProfile.Profile.City = profile.location.name;
             userProfile.Profile.Occupation = profile.headline;
-
             ['C#', 'Java', 'JavaScript', 'Python'].forEach(elm => {
                 const skill = new Skill();
                 skill.SkillName = elm;

@@ -35,15 +35,35 @@
 .profile_container label
 {
     color:#ABEBE6;
+    font-size: 1.0em;
 }
 
 .profile_container input[type=text]
 {
     border-bottom: 1px solid #7FE6D4;
     height: 2.0rem;
+    font-size: 1.5em;
+    font-weight:normal;
+    color: #223c61;
 }
 
 .profile_container .row
 {
     margin-bottom: 0px;
+}
+
+.profile_container textarea 
+{
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: hidden;      
+    border-bottom: 1px solid #7FE6D4;
+    resize: none;
+    font-weight:normal;
+    font-size: 1.5em;
+    color: #223c61;
+}
+
+ .profile_container textarea.materialize-textarea {
+    padding: 0 0 0 0;
 }
