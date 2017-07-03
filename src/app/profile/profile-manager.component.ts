@@ -21,14 +21,13 @@ export class ProfileManagerComponent implements OnInit {
     pageTitle: string;
     navButtonText: string;
     lock: any;
-    // progressPercent:string;
-    // currentProgress:number;
+    elementProgressBar: any;
+    currentProgress: number;
 
     constructor(private authService: AuthService, private marketabilityService: MarketabilityService) {
         this.currentPage = ProfilePage.Profile;
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain);
-        // this.currentProgress=25;
-        // this.progressPercent="25%";
+        this.currentProgress = 25;
     }
 
     ngOnInit() {
@@ -44,20 +43,25 @@ export class ProfileManagerComponent implements OnInit {
         if (this.currentPage === ProfilePage.Computation) {
             this.calculateMarketability();
         }
-        // this.currentProgress=this.currentProgress+25;
-        // this.progressPercent=(this.currentProgress)+'%';
+        this.currentProgress = this.currentProgress + 25;
+        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+
     }
 
     onPrevButtonClicked(page: ProfilePage) {
         this.currentPage = page - 1;
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
-        // this.currentProgress=this.currentProgress-25;
-        // this.progressPercent=(this.currentProgress)+'%';
+        this.currentProgress = this.currentProgress - 25;
+        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
     }
 
     calculateMarketability() {
         this.score = this.marketabilityService.calculateMarketability(this.currentProfile);
+        setTimeout(() => {
+            this.onNextButtonClicked(ProfilePage.Computation);
+        }, 3000);
+
     }
 
     onLogoutButtonClicked() {

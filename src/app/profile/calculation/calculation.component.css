@@ -1,8 +1,13 @@
 .calculating_container {
-  width : auto;
+  width : 100%;
   height : auto;
   text-align: center;
+  padding-right: 15%;
+}
 
+.valign-wrapper 
+{
+    height:100%;
 }
 
 /*.calculating_container img {

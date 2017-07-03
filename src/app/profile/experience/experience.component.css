@@ -1,6 +1,6 @@
 .experience_container{
   list-style: none;
-  padding: 0% 10%;
+  padding-right: 15%;
   width: auto;
 }
 
@@ -14,9 +14,8 @@
    margin-bottom: 15%;    
 }
 
-.experience_row input[type=text]:disabled+label
-{
-    color:#ABEBE6;
+.experience_row input[type=text]:disabled+label {
+    color: #ABEBE6;
 }
 
 .experience_row textarea.materialize-textarea
@@ -35,9 +34,8 @@
      font-size: 1.4em; 
 }
 
-.experience_row input[mkbTextWeight=small]
-{
-     font-size: inherit;
+.experience_row input[mkbTextWeight=small] {
+    font-size: inherit;
 }
 
 .experience_row .input-field {
@@ -72,7 +70,7 @@
     height: 2.0em;
 }
 
-.experience_row  .row {
+.experience_row .row {
     margin-bottom: 0;
     line-height: normal;
     font-size: 0.9rem;

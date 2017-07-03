@@ -9,19 +9,25 @@
 }*/
 
 .score_container {
-  width : auto;
+  width : 100%;
   height : auto;
   text-align: center;
   position: relative;
+  padding-right: 15%;
 }
 
 .score_span {
     text-align: center;
     position: absolute;
-    top: 22%;
-    right: 40%;
+    top: 20%;
+    right: 47.5%;
     color: #1b3c64;
     font-size: 4.5em;
     font-family: 'Calibri', sans-serif;
     font-weight: 600;
+}
+
+.valign-wrapper 
+{
+    height:100%;
 }
