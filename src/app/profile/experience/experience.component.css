@@ -1,56 +1,47 @@
-.experience_container{
-  list-style: none;
-  padding: 0 10%;
-  width: auto;
+.experience_container {
+    list-style: none;
+    width: auto;
 }
 
-.experience_row
-{
-    margin-bottom: 15%;        
+.experience_row {
+    margin-bottom: 15%;
 }
 
-.experience_row input[type=text]:disabled+label
-{
-    color:#ABEBE6;
+.experience_row input[type=text]:disabled+label {
+    color: #ABEBE6;
 }
 
-.experience_row input[mkbTextWeight=large]
-{
-     font-size: 1.4em; 
+.experience_row input[mkbTextWeight=large] {
+    font-size: 1.4em;
 }
 
-.experience_row input[mkbTextWeight=small]
-{
-     font-size: inherit;
+.experience_row input[mkbTextWeight=small] {
+    font-size: inherit;
 }
 
 .experience_row .input-field {
     margin-top: 0.8rem;
 }
 
-.experience_row label[mkbTextWeight=large]
-{
-     font-size: 1.2em; 
+.experience_row label[mkbTextWeight=large] {
+    font-size: 1.2em;
 }
 
-.experience_row label[mkbTextWeight=small]
-{
-    font-size: 0.8em; 
+.experience_row label[mkbTextWeight=small] {
+    font-size: 0.8em;
 }
 
-.experience_row input[type=text]:disabled
-{
+.experience_row input[type=text]:disabled {
     color: #213C5F;
     border-bottom: 1px solid #7FE6D4;
 }
 
-.experience_row input[type=text]
-{
+.experience_row input[type=text] {
     margin: 0 0 4px 0;
     height: 2.0rem;
 }
 
-.experience_row  .row {
+.experience_row .row {
     margin-bottom: 0;
     line-height: normal;
 }

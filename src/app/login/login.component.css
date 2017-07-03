@@ -28,20 +28,23 @@
     height: 100%;
 }
 
-.title {
-    font-size: 3em;
-    padding-bottom: 0.5em;
-    font-weight: bold;
+.logo-container {
+    height: 245px;
+    width: 245px;
 }
 
-.info {
+.info-desktop {
     width: 100%;
+}
+
+.info-mobile {
+    display: none;
 }
 
 .info-content {
     padding-bottom: 0.5em;
     padding-left: 30%;
-    font-size: 1.2em;
+    font-size: 32px;
 }
 
 .login-title {
@@ -58,5 +61,12 @@
     }
     .login-container {
         height: 50%;
+    }
+    .info-mobile {
+        width: 100%;
+        display: table;
+    }
+    .info-desktop {
+        display: none;
     }
 }

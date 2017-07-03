@@ -1,11 +1,9 @@
 .container {
     list-style: none;
-    width: 27%;
+    width: 100%;
     height: 45%;
-    overflow-y: auto;
-    position: absolute;
-    top: 25%;
-    left: 40%;
+    max-width: 353px;
+    margin: 0 auto;
 }
 
 .container::-webkit-scrollbar-track {
@@ -20,35 +18,40 @@
 }
 
 .container::-webkit-scrollbar-thumb {
-    background-color: #45db9e;
+    background-color: rgb(95, 207, 172);
 }
 
 .next-button {
-    background-color: #7AD8BD;
-    position: absolute;
-    bottom: 20%;
-    left: 42%;
-    width: 20%;
+    background-color: rgb(95, 207, 172);
+    width: 90%;
+    max-width: 310px;
+    margin: 0 auto;
+    display: table;
+    margin-top: 10%;
 }
 
 .nav-container {
-    /*width: 5%;*/
     height: 100%;
-    background-color: #2C4A71;
+    background-color: rgb(34, 60, 97);
     float: left;
-    /*min-width: 40px;*/
+    min-width: 80px;
+}
+
+.mobileViewNav-container {
+    display: none;
 }
 
 .profile-container {
-    width: 95%;
+    width: calc(100% - 80px) !important;
     height: 100%;
     float: left;
     position: relative;
+    padding: 0 !important;
 }
 
 .logout-container {
     padding-top: 25%;
-    padding-left: 40%;
+    padding-left: 1rem;
 }
 
 .logout-button {
@@ -59,7 +62,7 @@
 
 .prev-button-container {
     padding-top: 25%;
-    padding-left: 40%;
+    padding-left: 1rem;
 }
 
 .prev-button {
@@ -82,14 +85,11 @@
     min-height: 0px;
 }
 
-.progress-container {
-    position: absolute;
-    bottom: 10%;
-    left: 47% !important;
-}
-
 .progress {
     height: 7px;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 310px;
 }
 
 .profile-page-title {
@@ -101,12 +101,24 @@
 .page-title {
     font-size: 2em;
     font-weight: bold;
-    color: #2C4A71;
+    color: rgb(34, 60, 97);
+}
+
+.navBarPage-title {
+    display: none;
+}
+
+.profileContent-container {
+    height: 250px;
 }
 
 @media only screen and (max-width :600px) {
     .nav-container {
         height: 10%;
+        display: none;
+    }
+    .mobileViewNav-container {
+        display: inline;
     }
     .profile-container {
         height: 90%;
@@ -116,12 +128,18 @@
     }
     .prev-button-container {
         padding: 0px;
-        margin: 4%;
+        margin: 1.5rem;
+        float: left;
     }
     .progress-container {
         position: absolute;
-        top: 9%;
+        top: 0%;
         left: 0% !important;
+    }
+    .progress {
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
     }
     .profile-page-title {
         position: absolute;
@@ -129,17 +147,25 @@
         left: 12%;
     }
     .page-title {
-        font-size: 2em;
-        font-weight: normal;
-        color: #FFFFFF;
-    }
-    .next-button {
-        left: 23%;
-        width: auto;
+        display: none;
     }
     .container {
         top: 15%;
         left: 20%;
         width: 50%;
+    }
+    .navBarPage-title {
+        font-size: 2em !important;
+        font-weight: normal;
+        color: #FFFFFF;
+        display: inline;
+    }
+    nav {
+        background-color: rgb(34, 60, 97);
+        /*height: 10%;*/
+    }
+    nav ul li {
+        font-size: 2em;
+        padding-left: 1rem;
     }
 }

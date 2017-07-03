@@ -1,49 +1,12 @@
-/*.profile_label {
-  color: #b2eadb;
-  text-decoration: none;
-  font-family: Arial;
-  font-size:15px;
-    top: 0.0rem;
+.profile_container label {
+    color: #ABEBE6;
 }
 
-.profile_text[type=text]:not(.browser-default) {
-    color:#00396b;
-    border-bottom: 1px solid #b2eadb;
-    height : 1rem;
-}
-
-.row {
-    margin-bottom: 0px;
-}
-
-.input-field label:not(.label-icon).active {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-}
-
-.profile_container
-{
-    padding: 0 10%;
-    width: auto;
-}*/
-
-.profile_container{
-  padding: 0 10%;
-  width: auto;
-}
-
-.profile_container label
-{
-    color:#ABEBE6;
-}
-
-.profile_container input[type=text]
-{
+.profile_container input[type=text] {
     border-bottom: 1px solid #7FE6D4;
     height: 2.0rem;
 }
 
-.profile_container .row
-{
+.profile_container .row {
     margin-bottom: 0px;
 }
