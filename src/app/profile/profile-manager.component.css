@@ -1,0 +1,25 @@
+.mainContainer {
+  padding-left: 124px;
+  height: 100%;
+}
+
+.side-nav {
+  color: #fff;
+  width: 124px;
+  padding-top: 2em;
+}
+
+.container {
+  max-width: 370px;
+}
+
+#profileManger {
+  max-height: 725px;
+  height: 100%;
+}
+@media only screen and (max-width: 992px) {
+  .side-nav.fixed {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
