@@ -110,7 +110,7 @@ export class ProfileManagerComponent implements OnInit {
             userProfile.Profile.City = profile.location.name;
             userProfile.Profile.Occupation = profile.headline;
 
-            ['C#', 'Java', 'JavaScript', 'Python','Ruby On Rails', 'Java', 'JavaScript', 'Python','C#', 'Java', 'JavaScript', 'Python'].forEach(elm => {
+            ['C#', 'Java', 'JavaScript', 'Python','Ruby On Rails'].forEach(elm => {
                 const skill = new Skill();
                 skill.SkillName = elm;
                 userProfile.Skills.push(skill);
@@ -119,7 +119,7 @@ export class ProfileManagerComponent implements OnInit {
             profile.positions.values.forEach(experience => {
                 const companyInfo = new CompanyInfo();
                 companyInfo.CompanyName = experience.company.name;
-                companyInfo.Title = experience.title+". "+experience.title;
+                companyInfo.Title = experience.title + ". "+experience.title;
                 companyInfo.StartDate = experience.startDate.month + ' / ' + experience.startDate.year;
 
                 if (!experience.isCurrent) {
