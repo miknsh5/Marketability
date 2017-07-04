@@ -125,9 +125,6 @@ export class ProfileManagerComponent implements OnInit {
                     companyInfo.EndDate = '';
                 }
                 userProfile.Experience.WorkExperience.push(companyInfo);
-                userProfile.Experience.WorkExperience.push(companyInfo);
-                userProfile.Experience.WorkExperience.push(companyInfo);
-                userProfile.Experience.WorkExperience.push(companyInfo);
 
             });
             this.currentProfile = userProfile;
