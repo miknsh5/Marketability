@@ -1,4 +1,5 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, AfterContentChecked, Output, EventEmitter } from '@angular/core';
+import { ProfilePage } from '../../index';
 
 declare var $: any;
 
@@ -10,13 +11,15 @@ declare var $: any;
 export class BasicProfileComponent implements AfterViewInit {
 
     @Input() profile;
+    @Output() currentPage = new EventEmitter<ProfilePage>();
     constructor() {
     }
 
     ngAfterViewInit() {
         setTimeout(() => {
             $('#occupation_textarea').trigger('autoresize');
+            this.currentPage.emit(ProfilePage.Profile);
         }, 0)
-        
     }
+
 }
