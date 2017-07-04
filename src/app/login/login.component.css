@@ -8,14 +8,15 @@
     height: 100%;
     float: left;
     /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(#476f9a, #223c61);
+    background: -webkit-linear-gradient(#476f9a, #223c61);
     /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(#476f9a, #223c61);
-  /* For Firefox 3.6 to 15 */
-  background: -moz-linear-gradient(#476f9a, #223c61);
-  /* Standard syntax (must be last) */
-  background: linear-gradient(#476f9a, #223c61);
+    background: -o-linear-gradient(#476f9a, #223c61);
+    /* For Firefox 3.6 to 15 */
+    background: -moz-linear-gradient(#476f9a, #223c61);
+    /* Standard syntax (must be last) */
+    background: linear-gradient(#476f9a, #223c61);
     color: #FFFFFF;
+    min-height: 200px;
 }
 
 .login-container {
@@ -23,6 +24,7 @@
     float: left;
     background-color: #FFFFFF;
     color: #2C4A71;
+    min-height: 200px;
 }
 
 .title-wrapper {
@@ -36,12 +38,14 @@
 }
 
 .logo-container {
-    height: 245px;
-    width: 245px;
+    width: 100%;
+    max-width: 185px;
 }
 
 .info-desktop {
     width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
 }
 
 .info-mobile {
@@ -50,7 +54,7 @@
 
 .info-content {
     padding-bottom: 0.5em;
-    padding-left: 30%;
+    /*padding-left: 30%;*/
     font-size: 1.25em;
 }
 

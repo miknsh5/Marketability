@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener } from "@angular/core";
+import { Directive, ElementRef, HostListener, AfterContentChecked } from '@angular/core';
 
 declare var $: any;
 
 @Directive({
-  selector: '[autoGrow]',
+  selector: '[mkbAutoGrow]',
 })
-export class AutoGrowDirective {
+export class AutoGrowDirective implements AfterContentChecked {
 
   @HostListener('input', ['$event.target'])
   onInput(textArea: HTMLTextAreaElement): void {
@@ -21,7 +21,7 @@ export class AutoGrowDirective {
   }
 
   adjust(): void {
-    let nativeElement = this.element.nativeElement as HTMLTextAreaElement;
+    const nativeElement = this.element.nativeElement as HTMLTextAreaElement;
     setTimeout(() => { $(nativeElement).trigger('autoresize'); }, 0);
   }
 }

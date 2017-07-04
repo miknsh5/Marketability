@@ -2,20 +2,20 @@
     <div class="row">
         <div class="input-field col s12">
             <label class="active">Name</label>
-            <input #name class="validate" type="text" [ngModel]="profile.Name">
+            <input disabled #name class="validate" type="text" [ngModel]="profile.Name">
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
             <label class="active">City</label>
-            <input #city class="validate" type="text" [ngModel]="profile.City">
+            <input disabled #city class="validate" type="text" [ngModel]="profile.City">
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
             <label class="active">Occupation</label>
-            <textarea readonly mkbTextWeight="small" autoGrow class="materialize-textarea">{{profile.Occupation}}</textarea>
+            <textarea readonly mkbAutoGrow class="materialize-textarea">{{profile.Occupation}}</textarea>
       
         </div>
     </div>

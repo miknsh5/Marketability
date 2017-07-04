@@ -24,9 +24,14 @@ export class ProfileManagerComponent implements OnInit {
     lock: any;
     elementProgressBar: any;
     currentProgress: number;
+    forwardNavigaton: Array<ProfilePage> = [ProfilePage.Profile, ProfilePage.Skill,
+    ProfilePage.Experience, ProfilePage.Computation, ProfilePage.Marketability];
+
+    prevNavigaton: Array<ProfilePage> = [ProfilePage.Profile, ProfilePage.Skill,
+    ProfilePage.Experience, ProfilePage.Marketability];
 
     constructor(private authService: AuthService, private marketabilityService: MarketabilityService) {
-        this.currentPage = ProfilePage.Profile;
+        this.currentPage = this.forwardNavigaton[0];
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain);
         this.currentProgress = 25;
     }
@@ -38,7 +43,8 @@ export class ProfileManagerComponent implements OnInit {
     }
 
     onNextButtonClicked(page: ProfilePage) {
-        this.currentPage = page + 1;
+        const currentIndex = this.forwardNavigaton.indexOf(page);
+        this.currentPage = this.forwardNavigaton[currentIndex + 1];
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
         this.currentProgress = this.currentProgress + 25;
@@ -47,11 +53,18 @@ export class ProfileManagerComponent implements OnInit {
     }
 
     onPrevButtonClicked(page: ProfilePage) {
-        this.currentPage = page - 1;
+
+        const currentIndex = this.prevNavigaton.indexOf(page);
+        this.currentPage = this.prevNavigaton[currentIndex - 1];
         this.setPageTitle(this.currentPage);
+
+        if (page === ProfilePage.Marketability) {
+            this.currentProgress = 75;
+        } else {
+            this.currentProgress = this.currentProgress - 25;
+        }
+
         this.setNavButtonText(this.currentPage);
-        this.currentProgress = this.currentProgress - 25;
-        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
     }
 
     onMarketabilityCalculated(score : string)
@@ -94,7 +107,7 @@ export class ProfileManagerComponent implements OnInit {
             userProfile.Profile.Name = profile.name;
             userProfile.Profile.City = profile.location.name;
             userProfile.Profile.Occupation = profile.headline;
-            ['C#', 'Java', 'JavaScript', 'Python','Ruby On Rails'].forEach(elm => {
+            ['C#', 'Java', 'JavaScript', 'Python', 'Ruby On Rails'].forEach(elm => {
                 const skill = new Skill();
                 skill.SkillName = elm;
                 userProfile.Skills.push(skill);
@@ -120,6 +133,10 @@ export class ProfileManagerComponent implements OnInit {
             this.currentProfile = userProfile;
         });
 
+    }
+
+    onCotentInitialized(page: ProfilePage) {
+        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
     }
 
 }

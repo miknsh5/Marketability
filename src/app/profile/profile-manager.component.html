@@ -1,59 +1,58 @@
 <div class="profile-wrapper row">
-  <div class="nav-container col s12 m1">
-    <div class="logout-container">
-      <a class="logout-button" (click)="onLogoutButtonClicked()"><img src="../../assets/logoutWhite@2x.png"></a>
+    <div class="nav-container col s12 m1">
+        <div class="logout-container">
+            <a class="logout-button" (click)="onLogoutButtonClicked()" *ngIf="currentPage !=3"><img src="../../assets/logoutWhite@2x.png"></a>
+        </div>
+        <div class="prev-button-container" *ngIf="currentPage > 0 && currentPage !=3">
+            <a class="prev-button" (click)="onPrevButtonClicked(currentPage)"><i class="medium material-icons">navigate_before</i></a>
+        </div>
     </div>
-    <div class="prev-button-container" *ngIf="currentPage > 0">
-      <a class="prev-button" (click)="onPrevButtonClicked(currentPage)"><i class="medium material-icons">navigate_before</i></a>
-    </div>
-  </div>
 
-  <div class="mobileViewNav-container">
-    <nav>
-      <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left">
-          <li><a class="prev-button" (click)="onPrevButtonClicked(currentPage)" *ngIf="currentPage > 0"><i class="material-icons">navigate_before</i></a></li>
-          <li>
-            <div class=".navBarPage-title">
-              {{pageTitle}}
+    <div class="mobileViewNav-container">
+        <nav>
+            <div class="nav-wrapper">
+                <a class="logout-button right" (click)="onLogoutButtonClicked()" *ngIf="currentPage !=3"><img src="../../assets/logoutWhite.png"></a>
+                <ul id="nav-mobile" class="left">
+                    <li><a class="prev-button" (click)="onPrevButtonClicked(currentPage)" *ngIf="currentPage > 0 && currentPage !=3"><i class="material-icons">navigate_before</i></a></li>
+                    <li>
+                        <div class="navBarPage-title center-align">
+                            {{pageTitle}}
+                        </div>
+                    </li>
+                </ul>
             </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <!--<div class="profile-page-title m2 s6">
+        </nav>
+    </div>
+    <!--<div class="profile-page-title m2 s6">
         
     </div>-->
 
-  <div class="profile-container col s12 m11 valign-wrapper" *ngIf="currentProfile">
-    <div class="container">
-      <div [ngClass]="{'page-title-center' :currentPage === 3 || currentPage === 4,
-      'page-title': currentPage === 0 || currentPage === 1 || currentPage === 2}">
-         {{pageTitle}}
-      </div>
-      <div class="profileContent-container">
-        <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0"></mkb-basic-profile>
+    <div class="profile-container col s12 m11 valign-wrapper" *ngIf="currentProfile">
+        <div class="container">
+            <div class="hide-on-small-only" [ngClass]="{'page-title-center' :currentPage === 3 || currentPage === 4,
+      'page-title': currentPage === 0 || currentPage === 1 || currentPage === 2}"> 
+                {{pageTitle}}
+            </div>
+            <div class="profileContent-container">
+                <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0" (currentPage)="onCotentInitialized($event)"></mkb-basic-profile>
 
-        <mkb-skills [CurrentProfileSkills]="currentProfile.Skills" *ngIf="currentPage === 1"></mkb-skills>
+                <mkb-skills [CurrentProfileSkills]="currentProfile.Skills" *ngIf="currentPage === 1" (currentPage)="onCotentInitialized($event)"></mkb-skills>
 
-        <mkb-experience [CurrentProfileExperience]="currentProfile.Experience" *ngIf="currentPage === 2"></mkb-experience>
+                <mkb-experience [CurrentProfileExperience]="currentProfile.Experience" *ngIf="currentPage === 2" (currentPage)="onCotentInitialized($event)"></mkb-experience>
 
-        <mkb-calculation *ngIf="currentPage === 3" (onscore)="onMarketabilityCalculated($event)" [CurrentPersonProfile] = "currentProfile" ></mkb-calculation>
-
-        <mkb-score [score]="score" *ngIf="currentPage === 4"> </mkb-score>
-      </div>
-      <div class="buttonContainer">
-        <button class="waves-effect waves-light btn next-button" (click)="onNextButtonClicked(currentPage)" *ngIf="currentPage < 3">{{ navButtonText }}</button>
-        <div class="progress-container col s12 center-align" *ngIf="currentPage < 4">
-          <div class="progress">
-            <div class="determinate" id="progressPercent" style="width : 25% "></div>
-          </div>
+                <mkb-calculation *ngIf="currentPage === 3" (currentPage)="onCotentInitialized($event)" (onscore)="onMarketabilityCalculated($event)"
+                    [CurrentPersonProfile]="currentProfile"></mkb-calculation>
+                <mkb-score [score]="score" *ngIf="currentPage === 4" (currentPage)="onCotentInitialized($event)"> </mkb-score>
+            </div>
+            <div class="buttonContainer">
+                <button class="waves-effect waves-light btn next-button" (click)="onNextButtonClicked(currentPage)" *ngIf="currentPage < 3">{{ navButtonText }}</button>
+                <div class="progress-container col s12 center-align" *ngIf="currentPage < 4">
+                    <div class="progress">
+                        <div class="determinate" id="progressPercent" style="width : 25% "></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-
-  </div>
 
 </div>
