@@ -29,6 +29,22 @@
   max-height: 725px;
 }
 
+#contentContainer {
+  height: 450px;
+}
+
 #profileMangerContent {
   width: 100%;
+}
+
+.buttonContainer button {
+  height: 48px;
+  width: 240px;
+  display: block;
+  margin: 0 auto;
+}
+@media only screen and (max-height: 600px) {
+  #profileMangerContent {
+    height: inherit;
+  }
 }

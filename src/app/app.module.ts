@@ -8,14 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   AppComponent, LoginComponent, ProfileManagerComponent, BasicProfileComponent,
   CalculationComponent, ExperienceComponent, ScoreComponent, SkillsComponent,
-  AuthService, MarketabilityService, ProfileService, AuthGuard
+  AuthService, MarketabilityService, ProfileService, AuthGuard, AutoGrowDirective
 } from './index';
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, ProfileManagerComponent,
     BasicProfileComponent, CalculationComponent, ExperienceComponent,
-    ScoreComponent, SkillsComponent
+    ScoreComponent, SkillsComponent, AutoGrowDirective
   ],
   imports: [
     BrowserModule,

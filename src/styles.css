@@ -23,3 +23,17 @@ html {
 .inheritHeight {
   height: inherit;
 }
+
+input[type=text] {
+  height: 2rem !important;
+}
+
+textarea {
+  padding: .2rem 0 0 !important;
+  min-height: 2rem !important;
+  height: 2rem !important;
+}
+
+.capitalizeText {
+  text-transform: capitalize;
+}

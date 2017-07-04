@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService, Profile, Skill, Experience, PersonProfile, CompanyInfo } from '../shared/index';
+import { AuthService, Profile, Skill, Experience, PersonProfile, CompanyInfo, ProfilePage } from '../shared/index';
 
 @Component({
     selector: 'mkb-profile-manager',
@@ -10,6 +10,7 @@ import { AuthService, Profile, Skill, Experience, PersonProfile, CompanyInfo } f
 export class ProfileManagerComponent implements OnInit {
 
     public personProfile: PersonProfile;
+    public currentPage: ProfilePage;
 
     constructor(private authService: AuthService) {
         this.personProfile = new PersonProfile();

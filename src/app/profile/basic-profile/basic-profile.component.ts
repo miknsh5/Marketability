@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'mkb-basic-profile',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./basic-profile.component.css']
 })
 export class BasicProfileComponent {
+
+    @Input() profile;
 
     constructor() {
 

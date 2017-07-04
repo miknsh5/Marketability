@@ -13,7 +13,18 @@
         <div id="profileManger" class="inheritHeight">
             <div class="valign-wrapper inheritHeight">
                 <div id="profileMangerContent">
-                    <h5 class="center-align">Content Should go here</h5>
+                    <h5>Profile</h5>
+                    <div id="contentContainer">
+                        <mkb-basic-profile *ngIf="personProfile.Profile" [profile]="personProfile.Profile"></mkb-basic-profile>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="waves-effect waves-light btn next-button">Next</button>
+                        <div class="progress-container col s12 center-align">
+                            <div class="progress">
+                                <div class="determinate" id="progressPercent" style="width : 25% "></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
