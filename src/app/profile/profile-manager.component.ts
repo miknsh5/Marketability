@@ -40,9 +40,6 @@ export class ProfileManagerComponent implements OnInit {
         this.currentPage = page + 1;
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
-        if (this.currentPage === ProfilePage.Computation) {
-            this.calculateMarketability();
-        }
         this.currentProgress = this.currentProgress + 25;
         document.getElementById('progressPercent').style.width = this.currentProgress + '%';
 
@@ -56,12 +53,10 @@ export class ProfileManagerComponent implements OnInit {
         document.getElementById('progressPercent').style.width = this.currentProgress + '%';
     }
 
-    calculateMarketability() {
-        this.score = this.marketabilityService.calculateMarketability(this.currentProfile);
-        setTimeout(() => {
-            this.onNextButtonClicked(ProfilePage.Computation);
-        }, 3000);
-
+    onMarketabilityCalculated(score : string)
+    {
+        this.score = score;    
+        this.onNextButtonClicked(ProfilePage.Computation);
     }
 
     onLogoutButtonClicked() {
