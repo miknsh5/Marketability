@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
     AuthService, PersonProfile, Skill, Profile,
-    Experience, CompanyInfo, ProfilePage, MarketabilityService
+    Experience, CompanyInfo, ProfilePage, MarketabilityService, 
+    Constants
 } from '../shared/index';
 import { AUTH_CONFIG } from '../shared/services/auth/auth.config';
 
@@ -69,19 +70,7 @@ export class ProfileManagerComponent implements OnInit {
     }
 
     setPageTitle(page: ProfilePage) {
-        if (page === 0) {
-            this.pageTitle = 'Profile';
-        } else if (page === 1) {
-            this.pageTitle = 'Skills';
-        } else if (page === 2) {
-            this.pageTitle = 'Experience';
-        } else if (page === 3) {
-            this.pageTitle = 'Computation';
-        } else if (page === 4) {
-            this.pageTitle = 'Marketability';
-        } else {
-            this.pageTitle = '';
-        }
+        this.pageTitle = Constants.PageTitles.find(elm => elm.Id == page).Name;
     }
 
     setNavButtonText(page: ProfilePage) {

@@ -103,6 +103,15 @@
     color: rgb(34, 60, 97);
 }
 
+.page-title-center {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 15%;
+    color: rgb(34, 60, 97);
+}
+
+
 .navBarPage-title {
     display: none;
 }

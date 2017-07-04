@@ -28,8 +28,9 @@
 
   <div class="profile-container col s12 m11 valign-wrapper" *ngIf="currentProfile">
     <div class="container">
-      <div class="page-title">
-        {{pageTitle}}
+      <div [ngClass]="{'page-title-center' :currentPage === 3 || currentPage === 4,
+      'page-title': currentPage === 0 || currentPage === 1 || currentPage === 2}">
+         {{pageTitle}}
       </div>
       <div class="profileContent-container">
         <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0"></mkb-basic-profile>
