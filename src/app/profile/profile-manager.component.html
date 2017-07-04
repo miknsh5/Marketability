@@ -39,7 +39,7 @@
 
         <mkb-experience [CurrentProfileExperience]="currentProfile.Experience" *ngIf="currentPage === 2"></mkb-experience>
 
-        <mkb-calculation *ngIf="currentPage === 3"></mkb-calculation>
+        <mkb-calculation *ngIf="currentPage === 3" (onscore)="onMarketabilityCalculated($event)" [CurrentPersonProfile] = "currentProfile" ></mkb-calculation>
 
         <mkb-score [score]="score" *ngIf="currentPage === 4"> </mkb-score>
       </div>
