@@ -1,20 +1,20 @@
-<div id="basicProfile">
+<div id="basicProfile" class="pad-right-10-med-and-up">
     <form #profileForm="ngForm">
         <div class="row">
             <div class="input-field col s12">
-                <input class="capitalizeText" placeholder="Name" #name type="text" [ngModel]="profile.Name" [ngModelOptions]="{standalone: true}">
+                <input class="capitalizeText" placeholder="Name" #name readonly type="text" [ngModel]="profile.Name" [ngModelOptions]="{standalone: true}">
                 <label class="active" for="name">Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="City" #city type="text" [ngModel]="profile.City" [ngModelOptions]="{standalone: true}">
+                <input placeholder="City" #city readonly type="text" [ngModel]="profile.City" [ngModelOptions]="{standalone: true}">
                 <label class="active" for="city">City</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea mkbAutoGrow placeholder="Occupation" class="materialize-textarea" #occupation type="text" [ngModel]="profile.Occupation"
+                <textarea placeholder="Occupation" class="materialize-textarea" mkbAutoGrow #occupation readonly type="text" [ngModel]="profile.Occupation"
                     name="occupation"></textarea>
                 <label class="active" for="occupation">Occupation</label>
             </div>

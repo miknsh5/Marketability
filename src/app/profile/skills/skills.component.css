@@ -1,0 +1,23 @@
+ul>li {
+    display: block;
+    margin: 12.5px 0;
+}
+
+ul>li>span {
+    color: white;
+    font-size: 1.3rem;
+    padding: 1.5% 5% 1.5% 5%;
+    border-radius: 0.25rem;
+    font-family: Roboto;
+    background-color: rgb(36, 60, 97);
+}
+
+@media only screen and (min-width:1440px) {
+    ul>li {
+        margin: 0.6vw 0;
+    }
+    ul>li>span {
+        font-size: 1.3vw;
+        border-radius: 0.25vw;
+    }
+}

@@ -27,6 +27,7 @@ export class ProfileManagerComponent implements OnInit {
     ngOnInit() {
         this.getProfile();
         this.currentPage = ProfilePage.Profile;
+        this.setPageTitle(this.currentPage);
     }
 
     onChildComponentViewInit(page: ProfilePage) {
@@ -53,7 +54,7 @@ export class ProfileManagerComponent implements OnInit {
             this.personProfile.Profile.City = profile.location.name;
             this.personProfile.Profile.Occupation = profile.headline;
 
-            ['C#', 'Java', 'JavaScript', 'Python'].forEach(elm => {
+            ['C#', 'Java', 'JavaScript', 'Python', 'Ruby On Rails'].forEach(elm => {
                 const skill = new Skill();
                 skill.SkillName = elm;
                 this.personProfile.Skills.push(skill);
@@ -69,6 +70,7 @@ export class ProfileManagerComponent implements OnInit {
                 } else {
                     companyInfo.EndDate = '';
                 }
+                this.personProfile.Experience.WorkExperience.push(companyInfo);
                 this.personProfile.Experience.WorkExperience.push(companyInfo);
             });
         });

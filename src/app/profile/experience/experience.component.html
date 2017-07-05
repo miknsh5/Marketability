@@ -1,28 +1,28 @@
-<div id="experienceContainer">
+<div id="experienceContainer" class="pad-right-10-med-and-up">
     <p class="flow" *ngIf="Experience == null || Experience.WorkExperience == null || Experience.WorkExperience.length === 0">No experience found</p>
     <div *ngIf="Experience != null && Experience.WorkExperience && Experience.WorkExperience.length > 0">
         <ul>
             <li class="experience_row" *ngFor="let work_exp of Experience.WorkExperience">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Company" mkbTextWeight="large" readonly type="text" value="{{work_exp.CompanyName}}">
-                        <label class="active" mkbTextWeight="large" for="company_name">Company</label>
+                        <textarea placeholder="Company" #company readonly mkbAutoGrow [ngModel]="work_exp.CompanyName" class="materialize-textarea"></textarea>
+                        <label class="active" for="company">Company</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea placeholder="Company Title" readonly mkbTextWeight="small" mkbAutoGrow class="materialize-textarea">{{work_exp.Title}}</textarea>
-                        <label class="active" mkbTextWeight="small">Title</label>
+                        <textarea placeholder="Title" #title readonly mkbAutoGrow [ngModel]="work_exp.Title" class="font-90 materialize-textarea"></textarea>
+                        <label class="active" for="title">Title</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input placeholder="Start Date" mkbTextWeight="small" readonly type="text" value="{{work_exp.StartDate}}">
-                        <label class="active" mkbTextWeight="small" for="startdate">Start Date</label>
+                        <input placeholder="Start Date" class="font-90" readonly type="text" value="{{work_exp.StartDate}}">
+                        <label class="active" for="startdate">Start Date</label>
                     </div>
                     <div class="input-field col s6">
-                        <input placeholder="End Date" mkbTextWeight="small" readonly type="text" value="{{work_exp.EndDate}}">
-                        <label class="active" mkbTextWeight="small" for="enddate">End Date</label>
+                        <input placeholder="End Date" class="font-90" readonly type="text" value="{{work_exp.EndDate}}">
+                        <label class="active" for="enddate">End Date</label>
                     </div>
                 </div>
             </li>

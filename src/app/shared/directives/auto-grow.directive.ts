@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener, AfterContentChecked } from '@angular/core';
+import { Directive, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 
 declare var $: any;
 
 @Directive({
   selector: '[mkbAutoGrow]',
 })
-export class AutoGrowDirective implements AfterContentChecked {
+export class AutoGrowDirective implements AfterViewInit {
 
   public timer;
 
@@ -17,7 +17,7 @@ export class AutoGrowDirective implements AfterContentChecked {
   constructor(public element: ElementRef) {
   }
 
-  ngAfterContentChecked(): void {
+  ngAfterViewInit(): void {
     this.adjust();
   }
 
