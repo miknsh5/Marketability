@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, AfterViewInit, EventEmitter } from '@angular/core';
+import { Skill, ProfilePage } from '../../index';
 
 @Component({
     selector: 'mkb-skills',
     templateUrl: './skills.component.html',
     styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent {
+export class SkillsComponent implements AfterViewInit {
 
-    constructor() {
+    @Input() Skills: Array<Skill> = Array<Skill>();
+    @Output() afterViewInit = new EventEmitter<ProfilePage>();
 
+    constructor() { }
+
+    ngAfterViewInit() {
+        this.afterViewInit.emit(ProfilePage.Skill);
     }
 }

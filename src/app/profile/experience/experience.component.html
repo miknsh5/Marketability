@@ -1,0 +1,31 @@
+<div id="experienceContainer">
+    <p class="flow" *ngIf="Experience == null || Experience.WorkExperience == null || Experience.WorkExperience.length === 0">No experience found</p>
+    <div *ngIf="Experience != null && Experience.WorkExperience && Experience.WorkExperience.length > 0">
+        <ul>
+            <li class="experience_row" *ngFor="let work_exp of Experience.WorkExperience">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Company" mkbTextWeight="large" readonly type="text" value="{{work_exp.CompanyName}}">
+                        <label class="active" mkbTextWeight="large" for="company_name">Company</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea placeholder="Company Title" readonly mkbTextWeight="small" mkbAutoGrow class="materialize-textarea">{{work_exp.Title}}</textarea>
+                        <label class="active" mkbTextWeight="small">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Start Date" mkbTextWeight="small" readonly type="text" value="{{work_exp.StartDate}}">
+                        <label class="active" mkbTextWeight="small" for="startdate">Start Date</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="End Date" mkbTextWeight="small" readonly type="text" value="{{work_exp.EndDate}}">
+                        <label class="active" mkbTextWeight="small" for="enddate">End Date</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

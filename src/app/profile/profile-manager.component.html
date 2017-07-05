@@ -15,11 +15,13 @@
             <div class="valign-wrapper inheritHeight">
                 <div id="profileMangerContent">
                     <h5>Profile</h5>
-                    <div id="contentContainer">
-                        <mkb-basic-profile *ngIf="personProfile.Profile" [profile]="personProfile.Profile"></mkb-basic-profile>
+                    <div id="contentContainer" *ngIf="personProfile.Profile">
+                        <mkb-basic-profile [profile]="personProfile.Profile" *ngIf="currentPage === 0"></mkb-basic-profile>
+                        <mkb-skills [Skills]="personProfile.Skills" *ngIf="currentPage === 1" (afterViewInit)="onChildComponentViewInit($event)"></mkb-skills>
+                        <mkb-experience [Experience]="personProfile.Experience" *ngIf="currentPage === 2" (afterViewInit)="onChildComponentViewInit($event)"></mkb-experience>
                     </div>
                     <div class="buttonContainer">
-                        <button class="waves-effect waves-light btn next-button">Next</button>
+                        <button class="waves-effect waves-light btn next-button" (click)="onNextClicked()">Next</button>
                         <div class="progress-container col s12 center-align">
                             <div class="progress">
                                 <div class="determinate" id="progressPercent" style="width : 25% "></div>

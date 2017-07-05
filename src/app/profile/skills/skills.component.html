@@ -1,0 +1,8 @@
+<div id='skill_container'>
+    <p class="flow-text" *ngIf="Skills == null || Skills.length === 0">No skills found</p>
+    <div *ngIf="Skills != null && Skills.length > 0">
+        <ul>
+            <li *ngFor="let skill of Skills"><span>{{skill.SkillName}}</span></li>
+        </ul>
+    </div>
+</div>
