@@ -1,6 +1,6 @@
 .experience_container {
     list-style: none;
-    padding-right: 25%;
+    padding-right: 15%;
     width: auto;
 }
 
@@ -70,4 +70,10 @@
 
 .experience_row textarea[mkbTextWeight=large] {
     font-size: 1.4em;
+}
+
+@media only screen and (max-width :600px) {
+    .experience_container {
+        padding-right: 0px;
+    }
 }

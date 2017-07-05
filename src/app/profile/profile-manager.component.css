@@ -27,7 +27,8 @@
     max-width: 310px;
     margin: 0 auto;
     display: table;
-    margin-top: 10%;
+    margin-bottom: 5%;
+    text-transform: capitalize;
 }
 
 .nav-container {
@@ -35,6 +36,7 @@
     background-color: rgb(34, 60, 97);
     float: left;
     min-width: 80px;
+    position: fixed;
 }
 
 .mobileViewNav-container {
@@ -46,6 +48,7 @@
     float: left;
     position: relative;
     padding: 0 !important;
+    margin-left: 80px !important;
 }
 
 .logout-container {
@@ -86,10 +89,11 @@
 }
 
 .progress {
-    height: 7px;
-    margin: 2rem auto;
+    height: 10px;
+    margin: 0 auto;
     width: 90%;
     max-width: 310px;
+    margin-bottom: 10%;
 }
 
 .profile-page-title {
@@ -102,6 +106,7 @@
     font-size: 2em;
     font-weight: bold;
     color: rgb(34, 60, 97);
+    margin-bottom: 10%;
 }
 
 .page-title-center {
@@ -110,6 +115,7 @@
     text-align: center;
     padding-right: 15%;
     color: rgb(34, 60, 97);
+    margin-bottom: 15%;
 }
 
 .navBarPage-title {
@@ -121,10 +127,19 @@
     height: 250px;
     overflow-x: hidden;
     overflow-y: auto;
+    margin-bottom: 10%;
 }
 
 .buttonContainer {
     padding-right: 15%;
+}
+
+.progress .determinate {
+    background-color: rgb(95, 207, 172);
+}
+
+.progresbar-margin {
+    margin-top: 10%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -150,6 +165,7 @@
         height: 90%;
         top: 60px;
         width: 100% !important;
+        margin-left: 0px !important;
     }
     .logout-container {
         display: none;
@@ -183,7 +199,7 @@
     .container {
         /*top: 15%;*/
         /*left: 20%;*/
-        width: 95%;
+        width: 90%;
     }
     .navBarPage-title {
         font-size: 1em !important;
@@ -197,10 +213,13 @@
     }
     nav ul li {
         font-size: 2em;
-        padding-right: 1rem;
     }
     .logout-button {
         margin: 0.5rem;
+    }
+    .buttonContainer {
+        padding-right: 0px;
+        ;
     }
 }
 

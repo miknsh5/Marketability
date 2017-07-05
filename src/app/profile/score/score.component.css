@@ -34,3 +34,9 @@
     margin: 0 auto;
     position: relative
 }
+
+@media only screen and (max-width :600px) {
+    .score_container {
+        padding-right: 0px;
+    }
+}
