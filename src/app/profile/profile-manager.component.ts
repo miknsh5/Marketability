@@ -132,8 +132,11 @@ export class ProfileManagerComponent implements OnInit {
 
     }
 
-    onCotentInitialized(page: ProfilePage) {
-        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+    onContentInitialized(page: ProfilePage) {
+        if(document.getElementById('progressPercent')){
+            document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+        }
+        
     }
 
 }

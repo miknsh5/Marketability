@@ -35,12 +35,8 @@
     height: 100%;
     background-color: rgb(34, 60, 97);
     float: left;
-    min-width: 80px;
+    width: 80px;
     position: fixed;
-}
-
-.mobileViewNav-container {
-    display: none;
 }
 
 .profile-container {
@@ -71,7 +67,7 @@
     display: table-cell;
     color: #FFFFFF;
     cursor: pointer;
-    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .profile-wrapper {
@@ -119,7 +115,6 @@
 }
 
 .navBarPage-title {
-    display: none;
     padding-left: 1rem;
 }
 
@@ -151,21 +146,13 @@
 @media only screen and (max-width :600px) {
     .nav-container {
         height: 10%;
-        display: none;
-    }
-    .mobileViewNav-container {
-        display: inline;
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        z-index: 1;
     }
     .profile-container {
-        height: 90%;
-        top: 60px;
+        height: 80%;
         width: 100% !important;
         margin-left: 0px !important;
+        align-items: baseline;
+        margin-top: 15%;
     }
     .logout-container {
         display: none;
@@ -177,7 +164,7 @@
     }
     .progress-container {
         position: fixed;
-        top: 56px;
+        top: 72px;
         left: 0px !important;
         /*width: calc(100% + 80px) !important;*/
         z-index: 1;
@@ -200,38 +187,61 @@
         /*top: 15%;*/
         /*left: 20%;*/
         width: 90%;
+        height: 100%;
     }
     .navBarPage-title {
-        font-size: 1em !important;
+        font-size: 0.9em !important;
         font-weight: normal;
         color: #FFFFFF;
-        display: inline;
     }
     nav {
         background-color: rgb(34, 60, 97);
-        /*height: 10%;*/
+        padding: 0 15px;
     }
     nav ul li {
         font-size: 2em;
     }
-    .logout-button {
-        margin: 0.5rem;
+    .navbar-fixed nav,
+    nav {
+        height: 72px;
+    }
+    .logout-button>img {
+        padding-top: 15px;
     }
     .buttonContainer {
         padding-right: 0px;
-        ;
+    }
+    .profileContent-container {
+        height: 75%;
+    }
+    .progresbar-margin {
+        margin-top: 0px;
+    }
+    nav ul {
+        margin-top: 15px;
+    }
+    nav a {
+        margin-top: 15px;
+        padding: 0 15px;
     }
 }
 
-@media only screen and (max-width: 245px) {
+@media only screen and (max-width: 285px) {
     .navBarPage-title {
-        font-size: 0.5em !important;
+        font-size: 0.3em !important;
         font-weight: normal;
         color: #FFFFFF;
-        display: inline;
     }
     nav ul a {
         padding: 0;
         font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 325px) {
+    .navBarPage-title {
+        font-size: 0.7em !important;
+        font-weight: normal;
+        color: #FFFFFF;
     }
 }
