@@ -11,6 +11,11 @@
 
 .infoContent {
   font-size: 1.15em;
+  padding-left: calc(50% - 75px);
+}
+
+.loginContainer {
+  padding: 5% 0;
 }
 
 .loginContainer .center-align {
@@ -20,13 +25,10 @@
 .loginContainer h5 {
   margin-bottom: 0;
 }
-
-.infoContent {
-  padding-left: calc(50% - 75px);
-}
 @media only screen and (max-width :600px) {
-  .loginContainer {
-    height: 50%;
+  .loginContainer,
+  .titleContainer {
+    height: 50% !important;
   }
 
   .loginContainer > .valign-wrapper {

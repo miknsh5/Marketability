@@ -20,13 +20,22 @@
   padding-top: 2em;
 }
 
-.container {
-  width: 100%;
-  max-width: 375px;
+.side-nav > li {
+  width: 60px;
+  margin: 0 auto;
 }
 
-#profileManger {
-  max-height: 725px;
+.side-nav > li > a,
+.side-nav > li > a > .material-icons {
+  color: #FFFFFF;
+  padding: 0;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 425px;
+  padding: 0 25px;
 }
 
 #contentContainer {
@@ -47,4 +56,32 @@
   #profileMangerContent {
     height: inherit;
   }
+}
+@media only screen and (max-width: 600px) {
+  .mainContainer {
+    height: calc(100% - 62px);
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  #profileManger > .valign-wrapper {
+    align-items: baseline;
+    padding-top: 15%;
+  }
+
+  #contentContainer {
+    min-height: 360px;
+    height: auto;
+  }
+
+  .progress {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    margin: 0;
+    height: 6px;
+  }
+
 }

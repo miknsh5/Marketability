@@ -43,7 +43,7 @@ export class AuthService {
     public logout() {
         localStorage.clear();
         // Send the user back to the Login after logout
-        this.router.navigateByUrl('/login');
+        this.router.navigate(['login']);
     }
 
     private onAuthenticated() {
@@ -51,7 +51,7 @@ export class AuthService {
             localStorage.setItem('accessToken', authResult.accessToken);
             localStorage.setItem('id_token', authResult.idToken);
             this.lock.hide();
-            this.router.navigateByUrl('/home');
+            this.router.navigate(['home']);
         });
     }
 }

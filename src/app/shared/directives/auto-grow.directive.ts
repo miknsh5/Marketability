@@ -25,7 +25,7 @@ export class AutoGrowDirective implements AfterContentChecked {
     const nativeElement = this.element.nativeElement as HTMLTextAreaElement;
     setTimeout(() => {
       $(nativeElement).trigger('autoresize');
-    }, 0);
+    }, 1000);
   }
 
 }
