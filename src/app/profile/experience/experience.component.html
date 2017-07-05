@@ -5,7 +5,8 @@
             <li class="experience_row" *ngFor="let work_exp of CurrentProfileExperience.WorkExperience">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input mkbTextWeight="large" disabled type="text" class="validate" value="{{work_exp.CompanyName}}">
+                        <!--<input mkbTextWeight="large" disabled type="text" class="validate" value="{{work_exp.CompanyName}}">-->
+                        <textarea readonly mkbTextWeight="large" mkbAutoGrow class="materialize-textarea">{{work_exp.CompanyName}}</textarea>
                         <label class="active" mkbTextWeight="large" for="company_name">Company</label>
                     </div>
                 </div>

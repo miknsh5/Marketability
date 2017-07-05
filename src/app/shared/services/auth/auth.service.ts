@@ -44,7 +44,7 @@ export class AuthService {
             localStorage.setItem('accessToken', authResult.accessToken);
             localStorage.setItem('id_token', authResult.idToken);
             this.lock.hide();
-            this.router.navigateByUrl('/home');
+            this.router.navigate(['home']);
         });
     }
 
