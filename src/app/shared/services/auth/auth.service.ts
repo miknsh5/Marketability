@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
 import { AUTH_CONFIG } from './auth.config';
@@ -11,7 +11,7 @@ export class AuthService {
 
     lock: any;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private zone: NgZone) {
 
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain, {
 
@@ -44,7 +44,7 @@ export class AuthService {
             localStorage.setItem('accessToken', authResult.accessToken);
             localStorage.setItem('id_token', authResult.idToken);
             this.lock.hide();
-            this.router.navigate(['home']);
+            this.zone.run(() => this.router.navigateByUrl("/home"));
         });
     }
 
