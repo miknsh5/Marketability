@@ -8,7 +8,7 @@ import { Experience, ProfilePage } from '../../index';
 })
 export class ExperienceComponent implements AfterViewInit {
 
-  @Input() CurrentProfileExperience: Experience;
+  // @Input() CurrentProfileExperience: Experience;
   @Output() currentPage = new EventEmitter<ProfilePage>();
 
   constructor() {

@@ -34,14 +34,15 @@
                 {{pageTitle}}
             </div>
             <div class="profileContent-container">
-                <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0" (currentPage)="onContentInitialized($event)"></mkb-basic-profile>
+                <!-- <mkb-basic-profile [profile]="currentProfile.Profile" *ngIf="currentPage === 0" (currentPage)="onContentInitialized($event)"></mkb-basic-profile>
 
                 <mkb-skills [CurrentProfileSkills]="currentProfile.Skills" *ngIf="currentPage === 1" (currentPage)="onContentInitialized($event)"></mkb-skills>
 
                 <mkb-experience [CurrentProfileExperience]="currentProfile.Experience" *ngIf="currentPage === 2" (currentPage)="onContentInitialized($event)"></mkb-experience>
 
                 <mkb-calculation *ngIf="currentPage === 3" (currentPage)="onContentInitialized($event)" (onscore)="onMarketabilityCalculated($event)" [CurrentPersonProfile]="currentProfile"></mkb-calculation>
-                <mkb-score [score]="score" *ngIf="currentPage === 4" (currentPage)="onContentInitialized($event)"> </mkb-score>
+                <mkb-score [score]="score" *ngIf="currentPage === 4" (currentPage)="onContentInitialized($event)"> </mkb-score> -->
+                <router-outlet></router-outlet>
             </div>
             <div class="buttonContainer">
                 <button class="waves-effect waves-light btn next-button" (click)="onNextButtonClicked(currentPage)" *ngIf="currentPage < 3">{{ navButtonText }}</button>

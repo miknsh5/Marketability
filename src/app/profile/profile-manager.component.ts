@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import {
     AuthService, PersonProfile, Skill, Profile,
     Experience, CompanyInfo, ProfilePage, MarketabilityService, 
     Constants
 } from '../shared/index';
 import { AUTH_CONFIG } from '../shared/services/auth/auth.config';
-
+import { Router } from '@angular/router';
 declare var Auth0Lock: any;
 
 @Component({
@@ -30,7 +30,7 @@ export class ProfileManagerComponent implements OnInit {
     prevNavigaton: Array<ProfilePage> = [ProfilePage.Profile, ProfilePage.Skill,
     ProfilePage.Experience, ProfilePage.Marketability];
 
-    constructor(private authService: AuthService, private marketabilityService: MarketabilityService) {
+    constructor(private authService: AuthService, private marketabilityService: MarketabilityService, private router: Router, private zone: NgZone) {
         this.currentPage = this.forwardNavigaton[0];
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain);
         this.currentProgress = 25;
@@ -49,7 +49,7 @@ export class ProfileManagerComponent implements OnInit {
         this.setNavButtonText(this.currentPage);
         this.currentProgress = this.currentProgress + 25;
         document.getElementById('progressPercent').style.width = this.currentProgress + '%';
-
+        this.navigateToCurrentPage(this.currentPage);
     }
 
     onPrevButtonClicked(page: ProfilePage) {
@@ -128,6 +128,8 @@ export class ProfileManagerComponent implements OnInit {
 
             });
             this.currentProfile = userProfile;
+            localStorage.setItem('profileInfo', JSON.stringify(this.currentProfile));
+            this.navigateToCurrentPage(this.currentPage);
         });
 
     }
@@ -137,6 +139,34 @@ export class ProfileManagerComponent implements OnInit {
             document.getElementById('progressPercent').style.width = this.currentProgress + '%';
         }
         
+    }
+
+    private navigateToCurrentPage(currentPage: ProfilePage) {
+        console.log('currentPage',currentPage);
+        switch (currentPage) {
+            case ProfilePage.Profile:
+                console.log('-----------navigateToCurrentPage------------')
+                // console.dir(this.profileData.personProfile);
+                // this.zone.run(() => {
+                    this.router.navigate(['home/profile']);
+                // });
+                break;
+            case ProfilePage.Skill:
+                this.router.navigate(['home/skills']);
+                break;
+            case ProfilePage.Experience:
+                this.router.navigate(["home/experience"]);
+                break;
+            case ProfilePage.Computation:
+                this.router.navigate(["home/calculation"]);
+                break;
+            case ProfilePage.Marketability:
+                this.router.navigate(["home/score"]);
+                break;
+            default:
+                this.router.navigate([""]);
+                break;
+        }
     }
 
 }
