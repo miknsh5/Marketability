@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import {
     AuthService, PersonProfile, Skill, Profile,
-    Experience, CompanyInfo, ProfilePage, MarketabilityService, 
+    Experience, CompanyInfo, ProfilePage, MarketabilityService,
     Constants
 } from '../shared/index';
 import { AUTH_CONFIG } from '../shared/services/auth/auth.config';
@@ -30,7 +30,8 @@ export class ProfileManagerComponent implements OnInit {
     prevNavigaton: Array<ProfilePage> = [ProfilePage.Profile, ProfilePage.Skill,
     ProfilePage.Experience, ProfilePage.Marketability];
 
-    constructor(private authService: AuthService, private marketabilityService: MarketabilityService, private router: Router, private zone: NgZone) {
+    constructor(private authService: AuthService, private marketabilityService: MarketabilityService,
+        private router: Router, private zone: NgZone) {
         this.currentPage = this.forwardNavigaton[0];
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain);
         this.currentProgress = 25;
@@ -64,13 +65,21 @@ export class ProfileManagerComponent implements OnInit {
             this.currentProgress = this.currentProgress - 25;
         }
 
+        this.navigateToCurrentPage(this.currentPage);
         this.setNavButtonText(this.currentPage);
+        setTimeout(() => {
+            document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+        }, 100);
     }
 
-    onMarketabilityCalculated(score : string)
-    {
-        this.score = score;    
-        this.onNextButtonClicked(ProfilePage.Computation);
+    calculateMarketability(currentProfile: PersonProfile) {
+        setTimeout(() => {
+            const score = this.marketabilityService.calculateMarketability(currentProfile);
+            this.score = score;
+            this.onNextButtonClicked(ProfilePage.Computation);
+        }, 2000);
+
+
     }
 
     onLogoutButtonClicked() {
@@ -78,7 +87,7 @@ export class ProfileManagerComponent implements OnInit {
     }
 
     setPageTitle(page: ProfilePage) {
-        this.pageTitle = Constants.PageTitles.find(elm => elm.Id == page).Name;
+        this.pageTitle = Constants.PageTitles.find(elm => elm.Id === page).Name;
     }
 
     setNavButtonText(page: ProfilePage) {
@@ -134,37 +143,34 @@ export class ProfileManagerComponent implements OnInit {
 
     }
 
-    onContentInitialized(page: ProfilePage) {
-        if(document.getElementById('progressPercent')){
-            document.getElementById('progressPercent').style.width = this.currentProgress + '%';
-        }
-        
-    }
+    // onContentInitialized(page: ProfilePage) {
+    //     if (document.getElementById('progressPercent')) {
+    //         document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+    //     }
+
+    // }
 
     private navigateToCurrentPage(currentPage: ProfilePage) {
-        console.log('currentPage',currentPage);
+
         switch (currentPage) {
             case ProfilePage.Profile:
-                console.log('-----------navigateToCurrentPage------------')
-                // console.dir(this.profileData.personProfile);
-                // this.zone.run(() => {
-                    this.router.navigate(['home/profile']);
-                // });
+                this.router.navigate(['home/profile']);
                 break;
             case ProfilePage.Skill:
                 this.router.navigate(['home/skills']);
                 break;
             case ProfilePage.Experience:
-                this.router.navigate(["home/experience"]);
+                this.router.navigate(['home/experience']);
                 break;
             case ProfilePage.Computation:
-                this.router.navigate(["home/calculation"]);
+                this.router.navigate(['home/calculation']);
+                this.calculateMarketability(this.currentProfile);
                 break;
             case ProfilePage.Marketability:
-                this.router.navigate(["home/score"]);
+                this.router.navigate(['home/score'], { queryParams: { 'score': this.score } });
                 break;
             default:
-                this.router.navigate([""]);
+                this.router.navigate(['']);
                 break;
         }
     }

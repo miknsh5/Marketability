@@ -1,20 +1,19 @@
-import { Component, Input, AfterViewInit, AfterContentChecked, Output, EventEmitter } from '@angular/core';
-import { Experience, ProfilePage } from '../../index';
+import { Component, OnInit } from '@angular/core';
+import { Experience, ProfilePage, PersonProfile } from '../../index';
 
 @Component({
   selector: 'mkb-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements AfterViewInit {
+export class ExperienceComponent implements OnInit {
 
-  // @Input() CurrentProfileExperience: Experience;
-  @Output() currentPage = new EventEmitter<ProfilePage>();
-
+  CurrentProfileExperience: Experience;
   constructor() {
 
   }
-  ngAfterViewInit() {
-    this.currentPage.emit(ProfilePage.Experience);
+  ngOnInit() {
+    const personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
+    this.CurrentProfileExperience = personProfile.Experience;
   }
 }

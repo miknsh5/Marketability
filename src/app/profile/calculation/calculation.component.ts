@@ -1,6 +1,7 @@
 
-import { Component, AfterViewInit, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PersonProfile, MarketabilityService, ProfilePage } from '../../shared/index';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'mkb-calculation',
@@ -8,24 +9,19 @@ import { PersonProfile, MarketabilityService, ProfilePage } from '../../shared/i
     styleUrls: ['./calculation.component.css']
 })
 
-export class CalculationComponent implements OnInit, AfterViewInit {
-    @Input() CurrentPersonProfile: PersonProfile;
-    @Output() onscore = new EventEmitter<string>();
-    @Output() currentPage = new EventEmitter<ProfilePage>();
+export class CalculationComponent implements OnInit {
+    CurrentPersonProfile: PersonProfile;
 
-    constructor(private marketabilityService: MarketabilityService) {
-
+    constructor(private marketabilityService: MarketabilityService, private router: Router) {
     }
 
     ngOnInit(): void {
 
-        setTimeout(() => {
-            let score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
-            this.onscore.emit(score);
-        }, 2000);
-    }
-    
-    ngAfterViewInit() {
-        this.currentPage.emit(ProfilePage.Computation);
+        // setTimeout(() => {
+        // let personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
+        // this.CurrentPersonProfile = personProfile;
+        // let score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
+        // this.router.navigate(["home/score"], { queryParams: { 'score': score } });
+        // }, 2000);
     }
 }
