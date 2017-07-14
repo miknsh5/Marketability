@@ -6,6 +6,8 @@ import {
 } from '../shared/index';
 import { AUTH_CONFIG } from '../shared/services/auth/auth.config';
 import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
+
 declare var Auth0Lock: any;
 
 @Component({
@@ -31,63 +33,93 @@ export class ProfileManagerComponent implements OnInit {
     ProfilePage.Experience, ProfilePage.Marketability];
 
     constructor(private authService: AuthService, private marketabilityService: MarketabilityService,
-        private router: Router, private zone: NgZone) {
+        private router: Router, private zone: NgZone, private platformLocation: PlatformLocation) {
         this.currentPage = this.forwardNavigaton[0];
         this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain);
         this.currentProgress = 25;
+        this.navigateToCurrentPage(this.currentPage);
     }
 
     ngOnInit() {
         this.getProfile();
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
+
+        this.platformLocation.onPopState((event) => {
+            this.onLocationChanged(event['target'].location.pathname);
+        });
+        this.router.events.subscribe((event) => {
+            if (event.constructor.name === 'NavigationEnd') {
+                if (window.location.pathname === '/home/score') {
+                    this.currentPage = ProfilePage.Marketability;
+                    this.setPageTitle(this.currentPage);
+                }
+            }
+        });
     }
 
-    onNextButtonClicked(page: ProfilePage) {
+    onNextButtonClicked(page: ProfilePage, redirect: boolean) {
         const currentIndex = this.forwardNavigaton.indexOf(page);
         this.currentPage = this.forwardNavigaton[currentIndex + 1];
         this.setPageTitle(this.currentPage);
         this.setNavButtonText(this.currentPage);
         this.currentProgress = this.currentProgress + 25;
-        document.getElementById('progressPercent').style.width = this.currentProgress + '%';
-        this.navigateToCurrentPage(this.currentPage);
+        if (document.getElementById('progressPercent')) {
+            document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+        }
+        if (redirect) {
+            this.navigateToCurrentPage(this.currentPage);
+        }
     }
 
-    onPrevButtonClicked(page: ProfilePage) {
-
+    onPrevButtonClicked(page: ProfilePage, redirect: boolean) {
         const currentIndex = this.prevNavigaton.indexOf(page);
-        this.currentPage = this.prevNavigaton[currentIndex - 1];
-        this.setPageTitle(this.currentPage);
-
-        if (page === ProfilePage.Marketability) {
-            this.currentProgress = 75;
-        } else {
-            this.currentProgress = this.currentProgress - 25;
+        if (currentIndex != -1) {
+            this.currentPage = this.prevNavigaton[currentIndex - 1];
+        }
+        else {
+            this.currentPage = ProfilePage.Experience;
         }
 
-        this.navigateToCurrentPage(this.currentPage);
-        this.setNavButtonText(this.currentPage);
-        setTimeout(() => {
-            document.getElementById('progressPercent').style.width = this.currentProgress + '%';
-        }, 100);
+        if (this.currentPage >= 0) {
+            if (page === ProfilePage.Marketability) {
+                this.currentProgress = 75;
+                this.currentPage = ProfilePage.Experience;
+                window.history.back();
+            } else {
+                this.currentProgress = this.currentProgress - 25;
+            }
+            if (redirect) {
+                window.history.back();
+            }
+            this.setPageTitle(this.currentPage);
+
+            // this.navigateToCurrentPage(this.currentPage);
+            this.setNavButtonText(this.currentPage);
+            setTimeout(() => {
+                if (document.getElementById('progressPercent')) {
+                    document.getElementById('progressPercent').style.width = this.currentProgress + '%';
+                }
+            }, 100);
+        }
     }
 
-    calculateMarketability(currentProfile: PersonProfile) {
-        setTimeout(() => {
-            const score = this.marketabilityService.calculateMarketability(currentProfile);
-            this.score = score;
-            this.onNextButtonClicked(ProfilePage.Computation);
-        }, 2000);
-
-
-    }
+    // calculateMarketability(currentProfile: PersonProfile) {
+    //     setTimeout(() => {
+    //         const score = this.marketabilityService.calculateMarketability(currentProfile);
+    //         this.score = score;
+    //         this.onNextButtonClicked(ProfilePage.Computation, true);
+    //     }, 2000);
+    // }
 
     onLogoutButtonClicked() {
         this.authService.logout();
     }
 
-    setPageTitle(page: ProfilePage) {
-        this.pageTitle = Constants.PageTitles.find(elm => elm.Id === page).Name;
+    setPageTitle(page) {
+        if (page !== 'undefined') {
+            this.pageTitle = Constants.PageTitles.find(elm => elm.Id === page).Name;
+        }
     }
 
     setNavButtonText(page: ProfilePage) {
@@ -138,7 +170,7 @@ export class ProfileManagerComponent implements OnInit {
             });
             this.currentProfile = userProfile;
             localStorage.setItem('profileInfo', JSON.stringify(this.currentProfile));
-            this.navigateToCurrentPage(this.currentPage);
+            // this.navigateToCurrentPage(this.currentPage);
         });
 
     }
@@ -151,7 +183,6 @@ export class ProfileManagerComponent implements OnInit {
     // }
 
     private navigateToCurrentPage(currentPage: ProfilePage) {
-
         switch (currentPage) {
             case ProfilePage.Profile:
                 this.router.navigate(['home/profile']);
@@ -164,7 +195,7 @@ export class ProfileManagerComponent implements OnInit {
                 break;
             case ProfilePage.Computation:
                 this.router.navigate(['home/calculation']);
-                this.calculateMarketability(this.currentProfile);
+                // this.calculateMarketability(this.currentProfile);
                 break;
             case ProfilePage.Marketability:
                 this.router.navigate(['home/score'], { queryParams: { 'score': this.score } });
@@ -172,6 +203,31 @@ export class ProfileManagerComponent implements OnInit {
             default:
                 this.router.navigate(['']);
                 break;
+        }
+    }
+
+    onLocationChanged(path: string) {
+        let currentPage: ProfilePage;
+        if (path === '/home/profile') {
+            currentPage = ProfilePage.Profile;
+        } else if (path === '/home/skills') {
+            currentPage = ProfilePage.Skill;
+        } else if (path === '/home/experience') {
+            currentPage = ProfilePage.Experience;
+        } else if (path === '/home/calculation') {
+            currentPage = ProfilePage.Computation;
+        } else if (path === '/home/score') {
+            currentPage = ProfilePage.Marketability;
+        }
+
+        if (this.currentPage === ProfilePage.Profile && currentPage === ProfilePage.Profile) {
+            // this.router.navigate(['home/profile']);
+        } else if (currentPage < this.currentPage) {
+            this.onPrevButtonClicked(this.currentPage, false);
+        } else if (currentPage > this.currentPage) {
+            this.onNextButtonClicked(this.currentPage, false);
+        } else {
+            // this.router.navigate(['home/profile']);
         }
     }
 

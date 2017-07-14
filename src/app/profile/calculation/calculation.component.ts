@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PersonProfile, MarketabilityService, ProfilePage } from '../../shared/index';
 import { Router } from '@angular/router';
 
@@ -9,19 +9,24 @@ import { Router } from '@angular/router';
     styleUrls: ['./calculation.component.css']
 })
 
-export class CalculationComponent implements OnInit {
+export class CalculationComponent implements OnInit, OnDestroy {
     CurrentPersonProfile: PersonProfile;
-
+    timeout:any;
+    
     constructor(private marketabilityService: MarketabilityService, private router: Router) {
     }
 
     ngOnInit(): void {
 
-        // setTimeout(() => {
-        // let personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
-        // this.CurrentPersonProfile = personProfile;
-        // let score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
-        // this.router.navigate(["home/score"], { queryParams: { 'score': score } });
-        // }, 2000);
+        this.timeout=setTimeout(() => {
+        let personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
+        this.CurrentPersonProfile = personProfile;
+        let score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
+        this.router.navigate(["home/score"], { queryParams: { 'score': score } });
+        }, 2000);
+    }
+
+    ngOnDestroy(){
+        clearTimeout(this.timeout);
     }
 }
