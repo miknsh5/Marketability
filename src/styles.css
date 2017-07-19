@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.auth0-lock-header {
+    display: none !important;
+}

@@ -1,0 +1,8 @@
+<div class='skill_container'>
+   <div id="skill_container_msg" *ngIf="CurrentProfileSkills == null || CurrentProfileSkills.length == 0">No skills found</div>  
+   <div *ngIf="CurrentProfileSkills != null && CurrentProfileSkills.length > 0">
+    <ul>      
+      <li *ngFor = "let skill of CurrentProfileSkills"><span>{{skill.SkillName}}</span></li>
+    </ul>
+   </div>
+</div>

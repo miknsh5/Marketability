@@ -1,0 +1,247 @@
+.container {
+    list-style: none;
+    width: 100%;
+    height: 60%;
+    max-width: 353px;
+    margin: 0 auto;
+}
+
+.profileContent-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 1);
+    background-color: rgb(95, 207, 172);
+}
+
+.profileContent-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #F5F5F5;
+}
+
+.profileContent-container::-webkit-scrollbar-thumb {
+    background-color: rgb(95, 207, 172);
+}
+
+.next-button {
+    background-color: rgb(95, 207, 172);
+    width: 90%;
+    max-width: 310px;
+    margin: 0 auto;
+    display: table;
+    margin-bottom: 5%;
+    text-transform: capitalize;
+}
+
+.nav-container {
+    height: 100%;
+    background-color: rgb(34, 60, 97);
+    float: left;
+    width: 80px;
+    position: fixed;
+}
+
+.profile-container {
+    height: 100%;
+    float: left;
+    position: relative;
+    padding: 0 !important;
+    margin-left: 80px !important;
+}
+
+.logout-container {
+    padding-top: 25%;
+    padding-left: 1rem;
+}
+
+.logout-button {
+    color: #FFFFFF;
+    display: table-cell;
+    cursor: pointer;
+}
+
+.prev-button-container {
+    padding-top: 25%;
+    padding-left: 0.5rem;
+}
+
+.prev-button {
+    display: table-cell;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-right: 0px !important;
+}
+
+.profile-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    margin-bottom: auto !important;
+}
+
+.row .col {
+    padding: 0px;
+    min-height: 0px;
+}
+
+.progress {
+    height: 10px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 310px;
+    margin-bottom: 10%;
+}
+
+.profile-page-title {
+    position: absolute;
+    top: 15%;
+    left: 47.5%;
+}
+
+.page-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(34, 60, 97);
+    margin-bottom: 10%;
+}
+
+.page-title-center {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 15%;
+    color: rgb(34, 60, 97);
+    margin-bottom: 15%;
+}
+
+.navBarPage-title {
+    padding-left: 1rem;
+}
+
+.profileContent-container {
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 10%;
+}
+
+.buttonContainer {
+    padding-right: 15%;
+}
+
+.progress .determinate {
+    background-color: rgb(95, 207, 172);
+}
+
+.progresbar-margin {
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 992px) {
+    .profile-container {
+        width: calc(100% - 80px) !important;
+    }
+}
+
+@media only screen and (max-width :600px) {
+    .nav-container {
+        height: 10%;
+    }
+    .profile-container {
+        height: 80%;
+        width: 100% !important;
+        margin-left: 0px !important;
+        align-items: baseline;
+        margin-top: 15%;
+    }
+    .logout-container {
+        display: none;
+    }
+    .prev-button-container {
+        padding: 0px;
+        margin: 1.5rem;
+        float: left;
+    }
+    .progress-container {
+        position: fixed;
+        top: 72px;
+        left: 0px !important;
+        /*width: calc(100% + 80px) !important;*/
+        z-index: 1;
+    }
+    .progress {
+        min-width: 100%;
+        max-width: auto;
+        width: 100%;
+        margin: auto;
+    }
+    .profile-page-title {
+        position: absolute;
+        top: 2%;
+        left: 12%;
+    }
+    .page-title {
+        display: none;
+    }
+    .container {
+        /*top: 15%;*/
+        /*left: 20%;*/
+        width: 90%;
+        height: 100%;
+    }
+    .navBarPage-title {
+        font-size: 0.9em !important;
+        font-weight: normal;
+        color: #FFFFFF;
+    }
+    nav {
+        background-color: rgb(34, 60, 97);
+        padding: 0 15px;
+    }
+    nav ul li {
+        font-size: 2em;
+    }
+    .navbar-fixed nav,
+    nav {
+        height: 72px;
+    }
+    .logout-button>img {
+        padding-top: 15px;
+    }
+    .buttonContainer {
+        padding-right: 0px;
+    }
+    .profileContent-container {
+        height: 75%;
+    }
+    .progresbar-margin {
+        margin-top: 0px;
+    }
+    nav ul {
+        margin-top: 15px;
+    }
+    nav a {
+        margin-top: 15px;
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 285px) {
+    .navBarPage-title {
+        font-size: 0.3em !important;
+        font-weight: normal;
+        color: #FFFFFF;
+    }
+    nav ul a {
+        padding: 0;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 325px) {
+    .navBarPage-title {
+        font-size: 0.7em !important;
+        font-weight: normal;
+        color: #FFFFFF;
+    }
+}

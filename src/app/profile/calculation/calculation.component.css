@@ -1,0 +1,21 @@
+.calculating_container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding-right: 15%;
+}
+
+.valign-wrapper {
+    height: 100%;
+}
+
+@media only screen and (max-width :600px) {
+    .calculating_container {
+        padding-right: 0px;
+    }
+}
+
+
+/*.calculating_container img {
+   
+}*/

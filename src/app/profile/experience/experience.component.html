@@ -1,0 +1,33 @@
+<div class='experience_container'>
+    <div id="experience_container_msg" *ngIf="CurrentProfileExperience == null || CurrentProfileExperience.WorkExperience == null ||CurrentProfileExperience.WorkExperience.length == 0">No experience found</div>
+    <div *ngIf="CurrentProfileExperience != null && CurrentProfileExperience.WorkExperience && CurrentProfileExperience.WorkExperience.length > 0">
+        <ul>
+            <li class="experience_row" *ngFor="let work_exp of CurrentProfileExperience.WorkExperience">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!--<input mkbTextWeight="large" disabled type="text" class="validate" value="{{work_exp.CompanyName}}">-->
+                        <textarea readonly mkbTextWeight="large" mkbAutoGrow class="materialize-textarea">{{work_exp.CompanyName}}</textarea>
+                        <label class="active" mkbTextWeight="large" for="company_name">Company</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea readonly mkbTextWeight="small" mkbAutoGrow class="materialize-textarea">{{work_exp.Title}}</textarea>
+                        <label readonly class="active" mkbTextWeight="small">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input mkbTextWeight="small" disabled type="text" class="validate" value="{{work_exp.StartDate}}">
+                        <label class="active" mkbTextWeight="small" for="startdate">Start Date</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input mkbTextWeight="small" disabled type="text" class="validate" value="{{work_exp.EndDate}}">
+                        <label class="active" mkbTextWeight="small" for="enddate">End Date</label>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+</div>

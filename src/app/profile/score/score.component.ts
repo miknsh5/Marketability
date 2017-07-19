@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProfilePage } from '../../index';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
     selector: 'mkb-score',
@@ -7,7 +9,11 @@ import { Component } from '@angular/core';
 })
 export class ScoreComponent {
 
-    constructor() {
+    score;
 
+    constructor(private route: ActivatedRoute) {
+        this.route.queryParams.subscribe(params => {
+            this.score = params['score'];
+        });
     }
 }
