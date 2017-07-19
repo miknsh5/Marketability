@@ -11,22 +11,22 @@ import { Router } from '@angular/router';
 
 export class CalculationComponent implements OnInit, OnDestroy {
     CurrentPersonProfile: PersonProfile;
-    timeout:any;
-    
+    timeout: any;
+
     constructor(private marketabilityService: MarketabilityService, private router: Router) {
     }
 
     ngOnInit(): void {
 
-        this.timeout=setTimeout(() => {
-        let personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
-        this.CurrentPersonProfile = personProfile;
-        let score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
-        this.router.navigate(["home/score"], { queryParams: { 'score': score } });
+        this.timeout = setTimeout(() => {
+            const personProfile: PersonProfile = JSON.parse(localStorage.getItem('profileInfo'));
+            this.CurrentPersonProfile = personProfile;
+            const score = this.marketabilityService.calculateMarketability(this.CurrentPersonProfile);
+            this.router.navigate(['home/score'], { queryParams: { 'score': score } });
         }, 2000);
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         clearTimeout(this.timeout);
     }
 }

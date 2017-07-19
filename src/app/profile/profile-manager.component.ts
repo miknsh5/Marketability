@@ -74,10 +74,9 @@ export class ProfileManagerComponent implements OnInit {
 
     onPrevButtonClicked(page: ProfilePage, redirect: boolean) {
         const currentIndex = this.prevNavigaton.indexOf(page);
-        if (currentIndex != -1) {
+        if (currentIndex !== -1) {
             this.currentPage = this.prevNavigaton[currentIndex - 1];
-        }
-        else {
+        } else {
             this.currentPage = ProfilePage.Experience;
         }
 
@@ -94,7 +93,6 @@ export class ProfileManagerComponent implements OnInit {
             }
             this.setPageTitle(this.currentPage);
 
-            // this.navigateToCurrentPage(this.currentPage);
             this.setNavButtonText(this.currentPage);
             setTimeout(() => {
                 if (document.getElementById('progressPercent')) {
@@ -104,15 +102,8 @@ export class ProfileManagerComponent implements OnInit {
         }
     }
 
-    // calculateMarketability(currentProfile: PersonProfile) {
-    //     setTimeout(() => {
-    //         const score = this.marketabilityService.calculateMarketability(currentProfile);
-    //         this.score = score;
-    //         this.onNextButtonClicked(ProfilePage.Computation, true);
-    //     }, 2000);
-    // }
-
     onLogoutButtonClicked() {
+        const logout = window.open('https://www.linkedin.com/m/logout/', '_blank', 'height=500,width=400,top=100,left=500');
         this.authService.logout();
     }
 
@@ -170,18 +161,9 @@ export class ProfileManagerComponent implements OnInit {
             });
             this.currentProfile = userProfile;
             localStorage.setItem('profileInfo', JSON.stringify(this.currentProfile));
-            // this.navigateToCurrentPage(this.currentPage);
         });
 
     }
-
-    // onContentInitialized(page: ProfilePage) {
-    //     if (document.getElementById('progressPercent')) {
-    //         document.getElementById('progressPercent').style.width = this.currentProgress + '%';
-    //     }
-
-    // }
-
     private navigateToCurrentPage(currentPage: ProfilePage) {
         switch (currentPage) {
             case ProfilePage.Profile:
@@ -195,7 +177,6 @@ export class ProfileManagerComponent implements OnInit {
                 break;
             case ProfilePage.Computation:
                 this.router.navigate(['home/calculation']);
-                // this.calculateMarketability(this.currentProfile);
                 break;
             case ProfilePage.Marketability:
                 this.router.navigate(['home/score'], { queryParams: { 'score': this.score } });
@@ -227,7 +208,6 @@ export class ProfileManagerComponent implements OnInit {
         } else if (currentPage > this.currentPage) {
             this.onNextButtonClicked(this.currentPage, false);
         } else {
-            // this.router.navigate(['home/profile']);
         }
     }
 
