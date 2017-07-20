@@ -84,12 +84,18 @@ export class ProfileManagerComponent implements OnInit {
             if (page === ProfilePage.Marketability) {
                 this.currentProgress = 75;
                 this.currentPage = ProfilePage.Experience;
-                window.history.back();
+                if (!redirect) {
+                    window.history.back();
+                }
+
+
+                // this.navigateToCurrentPage(this.currentPage);
             } else {
                 this.currentProgress = this.currentProgress - 25;
             }
             if (redirect) {
-                window.history.back();
+                // window.history.back();
+                this.navigateToCurrentPage(this.currentPage);
             }
             this.setPageTitle(this.currentPage);
 
@@ -204,9 +210,14 @@ export class ProfileManagerComponent implements OnInit {
         if (this.currentPage === ProfilePage.Profile && currentPage === ProfilePage.Profile) {
             // this.router.navigate(['home/profile']);
         } else if (currentPage < this.currentPage) {
-            this.onPrevButtonClicked(this.currentPage, false);
+            if (currentPage === ProfilePage.Computation) {
+                this.onPrevButtonClicked(this.currentPage, false);
+            } else {
+                this.onPrevButtonClicked(this.currentPage, true);
+            }
+
         } else if (currentPage > this.currentPage) {
-            this.onNextButtonClicked(this.currentPage, false);
+            this.onNextButtonClicked(this.currentPage, true);
         } else {
         }
     }
