@@ -87,14 +87,10 @@ export class ProfileManagerComponent implements OnInit {
                 if (!redirect) {
                     window.history.back();
                 }
-
-
-                // this.navigateToCurrentPage(this.currentPage);
             } else {
                 this.currentProgress = this.currentProgress - 25;
             }
             if (redirect) {
-                // window.history.back();
                 this.navigateToCurrentPage(this.currentPage);
             }
             this.setPageTitle(this.currentPage);
@@ -215,7 +211,6 @@ export class ProfileManagerComponent implements OnInit {
             } else {
                 this.onPrevButtonClicked(this.currentPage, true);
             }
-
         } else if (currentPage > this.currentPage) {
             this.onNextButtonClicked(this.currentPage, true);
         } else {
